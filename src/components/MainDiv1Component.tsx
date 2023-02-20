@@ -110,4 +110,5 @@ const Orange = styled.div`
 `;
 const MainDiv = styled.div`
   padding: 0 24px;
+  margin-bottom: 120px;
 `;
