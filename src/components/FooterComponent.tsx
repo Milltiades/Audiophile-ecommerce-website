@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ThemeData } from "./ThemeDataComponent";
 
 export default function FooterComponent() {
+  const navigate = useNavigate();
+  
+
+  
   return (
     <>
       <Footer>
@@ -10,10 +15,20 @@ export default function FooterComponent() {
         <FooterUp>
           <FooterLogo src="/assets/shared/desktop/logo.svg" alt="" />
           <FooterUpUl>
-            <FooterUpLi>Home</FooterUpLi>
-            <FooterUpLi>Headphones</FooterUpLi>
-            <FooterUpLi>speakers</FooterUpLi>
-            <FooterUpLi>earphones</FooterUpLi>
+            <FooterUpLi>
+              <LiButtons onClick={() => {
+                navigate("/");
+                }}>Home</LiButtons>
+            </FooterUpLi>
+            <FooterUpLi>
+              <LiButtons onClick={() => navigate("/headphones")}>Headphones</LiButtons>
+            </FooterUpLi>
+            <FooterUpLi>
+              <LiButtons onClick={() => navigate("/speakers")}>speakers</LiButtons>
+            </FooterUpLi>
+            <FooterUpLi>
+              <LiButtons onClick={() => navigate("/earphones")}>earphones</LiButtons>
+            </FooterUpLi>
           </FooterUpUl>
         </FooterUp>
         <FooterDown>
@@ -34,17 +49,31 @@ export default function FooterComponent() {
     </>
   );
 }
+const LiButtons = styled.button`
+  border: none;
+  background: transparent;
+  color: ${ThemeData.colors.white};
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  &:hover {
+    opacity: 0.5;
+  }
+
+`
 const Socials = styled.div`
-margin-top: 50.25px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    
-`
+  margin-top: 50.25px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
 const TwitterImg = styled.img`
-    margin-left:16px ;
-    margin-right:16px ;
-`
+  margin-left: 16px;
+  margin-right: 16px;
+`;
 
 const FooterLine = styled.div`
   width: 101px;
@@ -60,7 +89,6 @@ const FooterDownP = styled.p`
   text-align: center;
   opacity: 0.5;
   color: ${ThemeData.colors.white};
-  
 `;
 const FooterDownlastP = styled.p`
   font-style: normal;
@@ -103,12 +131,7 @@ const FooterUpUl = styled.ul`
 const FooterUpLi = styled.li`
   list-style: none;
   margin-bottom: 16px;
-  color: ${ThemeData.colors.white};
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 25px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+ 
 `;
 
 const FooterDown = styled.div`

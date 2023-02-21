@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MaindDiv2Component from "../components/MaindDiv2Component";
 import { ThemeData } from "../components/ThemeDataComponent";
 import TripleDivComponent from "../components/TripleDivComponent";
 
 export default function HeadphonesPage() {
+  const navigate = useNavigate();
   return (
     <>
       <Header>
@@ -23,7 +25,7 @@ export default function HeadphonesPage() {
             It redefines your premium headphone experience by reproducing the
             balanced depth and precision of studio-quality sound.
           </ProductP>
-          <ProductButton>See Product</ProductButton>
+          <ProductButton onClick={() => navigate("xx99-mark-I")}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>

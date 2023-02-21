@@ -2,10 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeData } from './ThemeDataComponent'
 
+
+
 export default function HeaderComponent() {
+ 
   return (
     <>
-    <Header>
+    <Header >
        <ButtonIcon><ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" /></ButtonIcon>
       <img src="/assets/shared/desktop/logo.svg" alt="" />
       <ButtonIcon><ImgC src="/assets/shared/desktop/icon-cart.svg" alt="" /></ButtonIcon>
