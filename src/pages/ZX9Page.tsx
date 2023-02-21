@@ -7,20 +7,20 @@ import TripleDivComponent from "../components/TripleDivComponent";
 import data from "../../data.json";
 import { MyContext } from "../App";
 
-export default function XX59Page() {
+export default function ZX9Page() {
   const navigate = useNavigate();
-  const xx59 = data.find((e) => e.id === 2);
+  const zx9 = data.find((e) => e.id === 6);
   const context = useContext(MyContext);
   return (
     <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
-      <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
+      <BackButton onClick={() => navigate("/speakers")}>Go Back</BackButton>
       <ProductDiv>
-        <ProductImg src={xx59?.image.mobile} alt="" />
+        <ProductImg src={zx9?.image.mobile} alt="" />
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
-          <ProductH1>{xx59?.name}</ProductH1>
-          <ProductP>{xx59?.description}</ProductP>
-          <ProductPrice>{"$ " + xx59?.price}</ProductPrice>
+          <ProductH1>{zx9?.name}</ProductH1>
+          <ProductP>{zx9?.description}</ProductP>
+          <ProductPrice>{"$ " + zx9?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
               <ButtonMinus> - </ButtonMinus>
@@ -34,70 +34,77 @@ export default function XX59Page() {
       <FeaturesDiv>
         <FeatureH1>FEATURES</FeatureH1>
         <FeatureP>
-          These headphones have been created from durable, high-quality
-          materials tough enough to take anywhere. Its compact folding design
-          fuses comfort and minimalist style making it perfect for travel.
-          Flawless transmission is assured by the latest wireless technology
-          engineered for audio synchronization with videos. 
+          Connect via Bluetooth or nearly any wired source. This speaker
+          features optical, digital coaxial, USB Type-B, stereo RCA, and stereo
+          XLR inputs, allowing you to have up to five wired source devices
+          connected for easy switching. Improved bluetooth technology offers
+          near lossless audio quality at up to 328ft (100m).
           <br/>
           <br/>
-          More than a simple
-          pair of headphones, this headset features a pair of built-in
-          microphones for clear, hands-free calling when paired with a
-          compatible smartphone. Controlling music and calls is also intuitive
-          thanks to easy-access touch buttons on the earcups. Regardless of how
-          you use the XX59 headphones, you can do so all day thanks to an
-          impressive 30-hour battery life that can be rapidly recharged via
-          USB-C.
+          Discover clear,
+          more natural sounding highs than the competition with ZX9’s signature
+          planar diaphragm tweeter. Equally important is its powerful
+          room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll
+          be able to enjoy equal sound quality whether in a large room or small
+          den. Furthermore, you will experience new sensations from old songs
+          since it can respond to even the subtle waveforms.
         </FeatureP>
       </FeaturesDiv>
       <InTheBoxDiv>
         <InTheBoxDivH1>in the box</InTheBoxDivH1>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[0].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[0].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{zx9?.includes[0].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{zx9?.includes[0].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[1].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[1].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{zx9?.includes[1].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{zx9?.includes[1].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[2].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[2].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{zx9?.includes[2].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{zx9?.includes[2].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[3].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[3].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{zx9?.includes[3].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{zx9?.includes[3].item}</InTheBoxDivP2>
+        </InTheBoxDivText>
+        <InTheBoxDivText>
+          <InTheBoxDivP1>{zx9?.includes[4].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{zx9?.includes[4].item}</InTheBoxDivP2>
         </InTheBoxDivText>
       </InTheBoxDiv>
 
       <ImagesDiv>
-        <Img1 src={xx59?.gallery.first.mobile} alt="" />
-        <Img1 src={xx59?.gallery.second.mobile} alt="" />
-        <Img3 src={xx59?.gallery.third.mobile} alt="" />
+        <Img1 src={zx9?.gallery.first.mobile} alt="" />
+        <Img1 src={zx9?.gallery.second.mobile} alt="" />
+        <Img3 src={zx9?.gallery.third.mobile} alt="" />
       </ImagesDiv>
 
       <YuoMayAlsoLikeDiv>
         <H1>you may also like</H1>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[0].image.mobile} alt="" />
+          <LikeDivImg src={zx9?.others[0].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[0].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/headphones/xx99-mark-II")}>
+          <LikeH1>{zx9?.others[0].name}</LikeH1>
+          <LikeButton onClick={() => navigate("/speakers/zx7")}>
             See Product
           </LikeButton>
         </LikeDiv>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[1].image.mobile} alt="" />
+          <LikeDivImg src={zx9?.others[1].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[1].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/headphones/xx99-mark-I")}>See Product</LikeButton>
+          <LikeH1>{zx9?.others[1].name}</LikeH1>
+          <LikeButton onClick={() => navigate("/headphones/xx99-mark-I")}>
+            See Product
+          </LikeButton>
         </LikeDiv>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[2].image.mobile} alt="" />
+          <LikeDivImg src={zx9?.others[2].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[2].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/speakers/zx9")}>See Product</LikeButton>
+          <LikeH1>{zx9?.others[2].name}</LikeH1>
+          <LikeButton onClick={() => navigate("/headphones/xx59")}>
+            See Product
+          </LikeButton>
         </LikeDiv>
       </YuoMayAlsoLikeDiv>
 

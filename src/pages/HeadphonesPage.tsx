@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
 import MaindDiv2Component from "../components/MaindDiv2Component";
 import { ThemeData } from "../components/ThemeDataComponent";
 import TripleDivComponent from "../components/TripleDivComponent";
 
 export default function HeadphonesPage() {
   const navigate = useNavigate();
+  const context = useContext(MyContext);
   return (
-    <>
+    <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
       <Header>
         <HeaderH1>headphones</HeaderH1>
       </Header>
@@ -25,7 +27,7 @@ export default function HeadphonesPage() {
             It redefines your premium headphone experience by reproducing the
             balanced depth and precision of studio-quality sound.
           </ProductP>
-          <ProductButton onClick={() => navigate("xx99-mark-I")}>See Product</ProductButton>
+          <ProductButton onClick={() => navigate("xx99-mark-II")}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>
@@ -40,7 +42,7 @@ export default function HeadphonesPage() {
             detailed and accurate audio reproduction for audiophiles, mixing
             engineers, and music aficionados alike in studios and on the go.
           </ProductP>
-          <ProductButton>See Product</ProductButton>
+          <ProductButton onClick={() => navigate("xx99-mark-I")}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>
@@ -55,14 +57,14 @@ export default function HeadphonesPage() {
             tastes with the XX59 headphones. The stylish yet durable versatile
             wireless headset is a brilliant companion at home or on the move.
           </ProductP>
-          <ProductButton>See Product</ProductButton>
+          <ProductButton onClick={() => navigate('xx59')}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <TripleDivComponent/>
       <MaindDiv2Component/>
       
 
-    </>
+    </div>
   );
 }
 

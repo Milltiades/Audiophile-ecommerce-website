@@ -7,20 +7,20 @@ import TripleDivComponent from "../components/TripleDivComponent";
 import data from "../../data.json";
 import { MyContext } from "../App";
 
-export default function XX59Page() {
+export default function xx99mark1Page() {
   const navigate = useNavigate();
-  const xx59 = data.find((e) => e.id === 2);
+  const xx99mark1 = data.find((e) => e.id === 3);
   const context = useContext(MyContext);
   return (
     <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
       <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
       <ProductDiv>
-        <ProductImg src={xx59?.image.mobile} alt="" />
+        <ProductImg src={xx99mark1?.image.mobile} alt="" />
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
-          <ProductH1>{xx59?.name}</ProductH1>
-          <ProductP>{xx59?.description}</ProductP>
-          <ProductPrice>{"$ " + xx59?.price}</ProductPrice>
+          <ProductH1>{xx99mark1?.name}</ProductH1>
+          <ProductP>{xx99mark1?.description}</ProductP>
+          <ProductPrice>{"$ " + xx99mark1?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
               <ButtonMinus> - </ButtonMinus>
@@ -34,69 +34,68 @@ export default function XX59Page() {
       <FeaturesDiv>
         <FeatureH1>FEATURES</FeatureH1>
         <FeatureP>
-          These headphones have been created from durable, high-quality
-          materials tough enough to take anywhere. Its compact folding design
-          fuses comfort and minimalist style making it perfect for travel.
-          Flawless transmission is assured by the latest wireless technology
-          engineered for audio synchronization with videos. 
+          As the headphones all others are measured against, the XX99 Mark I
+          demonstrates over five decades of audio expertise, redefining the
+          critical listening experience. This pair of closed-back headphones are
+          made of industrial, aerospace-grade materials to emphasize durability
+          at a relatively light weight of 11 oz.
           <br/>
           <br/>
-          More than a simple
-          pair of headphones, this headset features a pair of built-in
-          microphones for clear, hands-free calling when paired with a
-          compatible smartphone. Controlling music and calls is also intuitive
-          thanks to easy-access touch buttons on the earcups. Regardless of how
-          you use the XX59 headphones, you can do so all day thanks to an
-          impressive 30-hour battery life that can be rapidly recharged via
-          USB-C.
+          From the handcrafted microfiber
+          ear cushions to the robust metal headband with inner damping element,
+          the components work together to deliver comfort and uncompromising
+          sound. Its closed-back design delivers up to 27 dB of passive noise
+          cancellation, reducing resonance by reflecting sound to a dedicated
+          absorber. For connectivity, a specially tuned cable is included with a
+          balanced gold connector.
         </FeatureP>
       </FeaturesDiv>
       <InTheBoxDiv>
         <InTheBoxDivH1>in the box</InTheBoxDivH1>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[0].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[0].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{xx99mark1?.includes[0].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{xx99mark1?.includes[0].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[1].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[1].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{xx99mark1?.includes[1].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{xx99mark1?.includes[1].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[2].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[2].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{xx99mark1?.includes[2].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{xx99mark1?.includes[2].item}</InTheBoxDivP2>
         </InTheBoxDivText>
         <InTheBoxDivText>
-          <InTheBoxDivP1>{xx59?.includes[3].quantity + "x"}</InTheBoxDivP1>
-          <InTheBoxDivP2>{xx59?.includes[3].item}</InTheBoxDivP2>
+          <InTheBoxDivP1>{xx99mark1?.includes[3].quantity + "x"}</InTheBoxDivP1>
+          <InTheBoxDivP2>{xx99mark1?.includes[3].item}</InTheBoxDivP2>
         </InTheBoxDivText>
       </InTheBoxDiv>
 
       <ImagesDiv>
-        <Img1 src={xx59?.gallery.first.mobile} alt="" />
-        <Img1 src={xx59?.gallery.second.mobile} alt="" />
-        <Img3 src={xx59?.gallery.third.mobile} alt="" />
+        <Img1 src={xx99mark1?.gallery.first.mobile} alt="" />
+        <Img1 src={xx99mark1?.gallery.second.mobile} alt="" />
+        <Img3 src={xx99mark1?.gallery.third.mobile} alt="" />
       </ImagesDiv>
 
       <YuoMayAlsoLikeDiv>
         <H1>you may also like</H1>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[0].image.mobile} alt="" />
+          <LikeDivImg src={xx99mark1?.others[0].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[0].name}</LikeH1>
+          <LikeH1>{xx99mark1?.others[0].name}</LikeH1>
           <LikeButton onClick={() => navigate("/headphones/xx99-mark-II")}>
             See Product
           </LikeButton>
         </LikeDiv>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[1].image.mobile} alt="" />
+          <LikeDivImg src={xx99mark1?.others[1].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[1].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/headphones/xx99-mark-I")}>See Product</LikeButton>
+          <LikeH1>{xx99mark1?.others[1].name}</LikeH1>
+          <LikeButton onClick={() => navigate("/headphones/xx59")}>See Product</LikeButton>
         </LikeDiv>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[2].image.mobile} alt="" />
+          <LikeDivImg src={xx99mark1?.others[2].image.mobile} alt="" />
 
-          <LikeH1>{xx59?.others[2].name}</LikeH1>
+          <LikeH1>{xx99mark1?.others[2].name}</LikeH1>
           <LikeButton onClick={() => navigate("/speakers/zx9")}>See Product</LikeButton>
         </LikeDiv>
       </YuoMayAlsoLikeDiv>

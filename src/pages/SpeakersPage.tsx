@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
 import MaindDiv2Component from "../components/MaindDiv2Component";
 import { ThemeData } from "../components/ThemeDataComponent";
 import TripleDivComponent from "../components/TripleDivComponent";
 
 export default function SpeakersPage() {
+  const context = useContext(MyContext);
+  const navigate = useNavigate();
   return (
-    <>
+    <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
       <Header>
         <HeaderH1>SPEAKERS</HeaderH1>
       </Header>
@@ -22,7 +26,7 @@ speaker</ProductH1>
           <ProductP>
           Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.
           </ProductP>
-          <ProductButton>See Product</ProductButton>
+          <ProductButton onClick={() => navigate("zx9")}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>
@@ -36,7 +40,7 @@ SPEAKER</ProductH1>
           <ProductP>
           Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.
           </ProductP>
-          <ProductButton>See Product</ProductButton>
+          <ProductButton onClick={() => navigate("zx7")}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
      
@@ -44,7 +48,7 @@ SPEAKER</ProductH1>
       <MaindDiv2Component/>
       
 
-    </>
+    </div>
   );
 }
 
