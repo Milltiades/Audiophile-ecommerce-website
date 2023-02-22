@@ -24,11 +24,25 @@ export default function xx99mark1Page() {
           <ProductPrice>{"$ " + xx99mark1?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityXX99M1(context.QuantityXX99M1 - 1)
+                if(context.QuantityXX99M1 == 0){
+                  context.setQuantityXX99M1(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityXX99M1}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityXX99M1(context.QuantityXX99M1 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityXX99M1 > 0){
+                context.setItemAddXX99M1(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>

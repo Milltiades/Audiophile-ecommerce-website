@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MaindDiv2Component from "../components/MaindDiv2Component";
@@ -11,9 +11,14 @@ import Menu from "../components/Menu";
 export default function XX99Mark2Page() {
   
   const context = useContext(MyContext);
+ 
   
   const navigate = useNavigate();
   const xx99mark2 = data.find((e) => e.id === 4)
+
+
+
+  
   return (
     <div style={{opacity:context.isCart  || context.isMenu ? "0.4" : "1", background: context.isCart || context.isMenu ? "#000000" : "transparent"}}>
       <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
@@ -31,11 +36,25 @@ export default function XX99Mark2Page() {
           <ProductPrice>{"$ " + xx99mark2?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityXX99M2(context.QuantityXX99M2 - 1)
+                if(context.QuantityXX99M2 == 0){
+                  context.setQuantityXX99M2(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityXX99M2}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityXX99M2(context.QuantityXX99M2 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityXX99M2 > 0){
+                context.setItemAddXX99M2(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>
