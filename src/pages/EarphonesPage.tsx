@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MyContext } from "../App";
 import MaindDiv2Component from "../components/MaindDiv2Component";
+import Menu from "../components/Menu";
 import { ThemeData } from "../components/ThemeDataComponent";
 import TripleDivComponent from "../components/TripleDivComponent";
 
@@ -10,7 +11,7 @@ export default function EarphonesPage() {
   const navigate = useNavigate();
   const context = useContext(MyContext);
   return (
-    <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
+    <div style={{opacity:context.isCart  || context.isMenu ? "0.4" : "1", background: context.isCart || context.isMenu ? "#000000" : "transparent"}}>
       <Header>
         <HeaderH1>Earphones</HeaderH1>
       </Header>
@@ -32,7 +33,7 @@ export default function EarphonesPage() {
         </ProductText>
       </ProductDiv>
 
-      <TripleDivComponent />
+      <Menu />
       <MaindDiv2Component />
     </div>
   );

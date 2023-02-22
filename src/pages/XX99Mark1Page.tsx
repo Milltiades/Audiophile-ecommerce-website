@@ -6,13 +6,14 @@ import { ThemeData } from "../components/ThemeDataComponent";
 import TripleDivComponent from "../components/TripleDivComponent";
 import data from "../../data.json";
 import { MyContext } from "../App";
+import Menu from "../components/Menu";
 
 export default function xx99mark1Page() {
   const navigate = useNavigate();
   const xx99mark1 = data.find((e) => e.id === 3);
   const context = useContext(MyContext);
   return (
-    <div style={{opacity:context.isCart? "0.4" : "1", background: context.isCart? "#000000" : "transparent"}}>
+    <div style={{opacity:context.isCart  || context.isMenu ? "0.4" : "1", background: context.isCart || context.isMenu ? "#000000" : "transparent"}}>
       <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
       <ProductDiv>
         <ProductImg src={xx99mark1?.image.mobile} alt="" />
@@ -100,7 +101,7 @@ export default function xx99mark1Page() {
         </LikeDiv>
       </YuoMayAlsoLikeDiv>
 
-      <TripleDivComponent />
+      <Menu />
 
       <MaindDiv2Component />
     </div>

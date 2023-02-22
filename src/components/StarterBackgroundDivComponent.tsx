@@ -32,7 +32,7 @@ const BackgroundDiv = styled.div`
   background-size: cover;
   padding-bottom: 104px;
   top: -59.78px;
-  margin-bottom: 92px;
+  
 `;
 const ContentDiv = styled.div`
   display: flex;

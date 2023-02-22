@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { MyContext } from '../App'
+import Menu from './Menu'
 import { ThemeData } from './ThemeDataComponent'
 
 
@@ -11,7 +12,7 @@ export default function HeaderComponent() {
   return (
     <>
     <Header >
-       <ButtonIcon><ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" /></ButtonIcon>
+       <ButtonIcon onClick={() => context.setIsMenu(!context.isMenu)}><ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" /></ButtonIcon>
       <img src="/assets/shared/desktop/logo.svg" alt="" />
       <ButtonIcon onClick={() => context.setIsCart(!context.isCart)}><ImgC src="/assets/shared/desktop/icon-cart.svg" alt="" /></ButtonIcon>
     </Header>
@@ -42,9 +43,12 @@ export default function HeaderComponent() {
         <Button>checkout</Button>
       </CartMainDiv>
     </CartDiv>
+    <MenuDiv display={context.isMenu? "block" : "none"}><Menu/></MenuDiv>
     </>
   )
 }
+
+
 const Button = styled.button`
   width: 100%;
   background: ${ThemeData.colors.orange};
@@ -207,6 +211,11 @@ const CartMainDiv = styled.div`
   
   border-radius: 8px;
   padding: 31px 29px 31px 28px;
+`
+const MenuDiv = styled(CartDiv)`
+padding: 0;
+margin-top: 0;
+  
 `
 
 const ButtonIcon = styled.button`

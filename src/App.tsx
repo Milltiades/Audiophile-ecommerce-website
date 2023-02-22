@@ -18,10 +18,11 @@ import ZX9Page from "./pages/ZX9Page";
 export const MyContext = createContext<any>("");
 
 function App() {
-  const [isCart, setIsCart] = useState<boolean>();
+  const [isCart, setIsCart] = useState<boolean>(false);
+  const [isMenu, setIsMenu] = useState<boolean>(false);
 
   return (
-    <MyContext.Provider value={{ isCart, setIsCart }}>
+    <MyContext.Provider value={{ isCart, setIsCart, isMenu, setIsMenu }}>
       <div className="App">
         <GlobalStyles />
         <HeaderComponent />

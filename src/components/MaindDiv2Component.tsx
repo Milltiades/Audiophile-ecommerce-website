@@ -66,7 +66,7 @@ const MainDiv2 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 24px;
-  margin-top: 52px;
+  /* margin-top: 52px; */
   position: relative;
   
 `;
