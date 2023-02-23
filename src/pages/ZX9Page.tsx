@@ -24,11 +24,25 @@ export default function ZX9Page() {
           <ProductPrice>{"$ " + zx9?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityZX9(context.QuantityZX9 - 1)
+                if(context.QuantityZX9 == 0){
+                  context.setQuantityZX9(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityZX9}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityZX9(context.QuantityZX9 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityZX9 > 0){
+                context.setItemAddZX9(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>

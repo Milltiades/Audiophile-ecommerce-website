@@ -88,6 +88,8 @@ const Category = styled.div`
   overflow: hidden;
   position: relative;
   
+  
+  
 `
 
 const CategoryImgDiv = styled.div`
@@ -160,6 +162,7 @@ const TripleDiv = styled.div`
   position: relative;
   top: -100px;
   background: ${ThemeData.colors.white};
+  margin-top: 32px;
   
  
 `;

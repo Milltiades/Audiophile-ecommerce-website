@@ -24,11 +24,25 @@ export default function YX1Page() {
           <ProductPrice>{"$ " + yx1?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityYX1(context.QuantityYX1 - 1)
+                if(context.QuantityYX1 == 0){
+                  context.setQuantityYX1(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityYX1}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityYX1(context.QuantityYX1 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityYX1 > 0){
+                context.setItemAddYX1(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>

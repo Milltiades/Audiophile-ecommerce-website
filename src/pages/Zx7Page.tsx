@@ -24,11 +24,25 @@ export default function ZX7Page() {
           <ProductPrice>{"$ " + zx7?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityZX7(context.QuantityZX7 - 1)
+                if(context.QuantityZX7 == 0){
+                  context.setQuantityZX7(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityZX7}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityZX7(context.QuantityZX7 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityZX7 > 0){
+                context.setItemAddZX7(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>

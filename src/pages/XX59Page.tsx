@@ -24,11 +24,25 @@ export default function XX59Page() {
           <ProductPrice>{"$ " + xx59?.price}</ProductPrice>
           <ButtonsDiv>
             <QuanityDiv>
-              <ButtonMinus> - </ButtonMinus>
-              <ButtonP>1</ButtonP>
-              <ButtonMinus> + </ButtonMinus>
+              <ButtonMinus onClick={() => {
+                context.setQuantityXX59(context.QuantityXX59 - 1)
+                if(context.QuantityXX59 == 0){
+                  context.setQuantityXX59(0)
+                }
+                }}> - </ButtonMinus>
+              <ButtonP>{context.QuantityXX59}</ButtonP>
+              <ButtonMinus onClick={() => context.setQuantityXX59(context.QuantityXX59 + 1)}> + </ButtonMinus>
             </QuanityDiv>
-            <ProductButton>ADD TO CART</ProductButton>
+            <ProductButton onClick={() => {
+              if(context.QuantityXX59 > 0){
+                context.setItemAddXX59(true)
+                
+              }
+              context.setIsRemoved(false)
+                context.setCurtNum(context.CurtNum + 1)
+              
+
+            }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
       </ProductDiv>
