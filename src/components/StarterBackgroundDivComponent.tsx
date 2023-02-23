@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ThemeData } from './ThemeDataComponent';
 
 export default function StarterBackgroundDivComponent() {
+  const navigate = useNavigate();
   return (
     <>
     <BackgroundDiv>
@@ -13,7 +15,7 @@ export default function StarterBackgroundDivComponent() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </BackText>
-          <Button>See Product</Button>
+          <Button onClick={() => navigate("/headphones/xx99-mark-II")}>See Product</Button>
         </ContentDiv>
       </BackgroundDiv>
     </>

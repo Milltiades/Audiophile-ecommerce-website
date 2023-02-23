@@ -33,12 +33,15 @@ function App() {
   const [QuantityYX1, setQuantityYX1] = useState<number>(0);
   const [QuantityZX7, setQuantityZX7] = useState<number>(0);
   const [QuantityZX9, setQuantityZX9] = useState<number>(0);
-  const [CurtNum, setCurtNum] = useState(0)
+  const [CurtNum, setCurtNum] = useState(0);
+  const [isOrder, setIsOrder] = useState(false);
 
   return (
     <MyContext.Provider
       value={{
-        CurtNum, 
+        isOrder,
+        setIsOrder,
+        CurtNum,
         setCurtNum,
         QuantityXX99M1,
         setQuantityXX99M1,

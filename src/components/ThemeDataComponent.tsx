@@ -8,6 +8,7 @@ export const ThemeData = {
         silver : "#F1F1F1",
         lightSilver : "#FAFAFA",
         orange: "#D87D4A",
-        lightOrange : "#FBAF85"
+        lightOrange : "#FBAF85",
+        backgroundSilver : "#F2F2F2"
       }
     }
