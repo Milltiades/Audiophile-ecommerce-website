@@ -14,9 +14,14 @@ export default function XX59Page() {
   const context = useContext(MyContext);
   return (
     <div style={{opacity:context.isCart  || context.isMenu ? "0.4" : "1", background: context.isCart || context.isMenu ? "#000000" : "transparent"}}>
-      <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
+      <BackButton onClick={() => {
+        navigate("/headphones")
+        context.HeaderGoFunc();
+        }}>Go Back</BackButton>
       <ProductDiv>
-        <ProductImg src={xx59?.image.mobile} alt="" />
+        <ImgDiv>
+        <ProductImg src={window.innerWidth < 768 ? xx59?.image.mobile : xx59?.image.tablet} alt="" />
+        </ImgDiv>
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
           <ProductH1>{xx59?.name}</ProductH1>
@@ -68,6 +73,7 @@ export default function XX59Page() {
       </FeaturesDiv>
       <InTheBoxDiv>
         <InTheBoxDivH1>in the box</InTheBoxDivH1>
+        <DivFeatureRight>
         <InTheBoxDivText>
           <InTheBoxDivP1>{xx59?.includes[0].quantity + "x"}</InTheBoxDivP1>
           <InTheBoxDivP2>{xx59?.includes[0].item}</InTheBoxDivP2>
@@ -84,36 +90,50 @@ export default function XX59Page() {
           <InTheBoxDivP1>{xx59?.includes[3].quantity + "x"}</InTheBoxDivP1>
           <InTheBoxDivP2>{xx59?.includes[3].item}</InTheBoxDivP2>
         </InTheBoxDivText>
+        </DivFeatureRight>
       </InTheBoxDiv>
 
       <ImagesDiv>
-        <Img1 src={xx59?.gallery.first.mobile} alt="" />
-        <Img1 src={xx59?.gallery.second.mobile} alt="" />
-        <Img3 src={xx59?.gallery.third.mobile} alt="" />
+        <ImgDiv1>
+        <Img1 src={window.innerWidth < 768 ? xx59?.gallery.first.mobile : xx59?.gallery.first.tablet} alt="" />
+        <Img1 src={window.innerWidth < 768 ? xx59?.gallery.second.mobile : xx59?.gallery.second.tablet} alt="" />
+        </ImgDiv1>
+        <Img3 src={window.innerWidth < 768 ? xx59?.gallery.third.mobile : xx59?.gallery.third.tablet} alt="" />
       </ImagesDiv>
 
       <YuoMayAlsoLikeDiv>
         <H1>you may also like</H1>
+        <LikdeDivMain>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[0].image.mobile} alt="" />
+          <LikeDivImg src={window.innerWidth < 768 ? xx59?.others[0].image.mobile : xx59?.others[0].image.tablet} alt="" />
 
           <LikeH1>{xx59?.others[0].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/headphones/xx99-mark-II")}>
+          <LikeButton onClick={() => {
+            navigate("/headphones/xx99-mark-II")
+            context.HeaderGoFunc();
+            }}>
             See Product
           </LikeButton>
         </LikeDiv>
-        <LikeDiv>
-          <LikeDivImg src={xx59?.others[1].image.mobile} alt="" />
+        <LikeDiv style={{margin: "0 11px"}}>
+          <LikeDivImg src={window.innerWidth < 768 ? xx59?.others[1].image.mobile : xx59?.others[1].image.tablet} alt="" />
 
           <LikeH1>{xx59?.others[1].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/headphones/xx99-mark-I")}>See Product</LikeButton>
+          <LikeButton onClick={() => {
+            navigate("/headphones/xx99-mark-I")
+            context.HeaderGoFunc();
+            }}>See Product</LikeButton>
         </LikeDiv>
         <LikeDiv>
-          <LikeDivImg src={xx59?.others[2].image.mobile} alt="" />
+          <LikeDivImg src={window.innerWidth < 768 ? xx59?.others[2].image.mobile : xx59?.others[2].image.tablet} alt="" />
 
           <LikeH1>{xx59?.others[2].name}</LikeH1>
-          <LikeButton onClick={() => navigate("/speakers/zx9")}>See Product</LikeButton>
+          <LikeButton onClick={() => {
+            navigate("/speakers/zx9")
+            context.HeaderGoFunc();
+            }}>See Product</LikeButton>
         </LikeDiv>
+        </LikdeDivMain>
       </YuoMayAlsoLikeDiv>
 
       <Menu />
@@ -122,6 +142,43 @@ export default function XX59Page() {
     </div>
   );
 }
+
+const LikdeDivMain = styled.div`
+  @media (width > 767px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+`
+
+const ImgDiv1 = styled.div`
+  @media (width > 767px) {
+    margin-right: 17.67px;
+    width: 40%;
+  }
+`
+
+const DivFeatureRight = styled.div`
+  width: 50%;
+`
+
+const ImgDiv = styled.div`
+@media (width > 767px){
+ 
+height: 480px;
+background: ${ThemeData.colors.silver};
+border-radius: 8px;
+margin-bottom: 32px;
+align-items: center;
+display: flex;
+justify-content: center;
+overflow: hidden;
+width: 40%
+
+
+
+}
+`
 
 const LikeButton = styled.button`
   font-style: normal;
@@ -164,6 +221,10 @@ const LikeDiv = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  @media (width > 767px) {
+   width: 33%;
+   
+  }
 `;
 const LikeDivImg = styled.img`
   width: 100%;
@@ -177,18 +238,30 @@ const YuoMayAlsoLikeDiv = styled.div`
   flex-direction: column;
   margin-top: 120px;
   margin-bottom: 120px;
+  @media (width > 767px) {
+    padding: 0 40px;
+    
+  }
 `;
 
 const ImagesDiv = styled.div`
   padding: 0 24px;
   overflow: hidden;
   width: 100%;
+  @media (width > 767px) {
+    display: flex;
+    flex-direction: row;
+    padding: 0 40px;
+  }
 `;
 const Img3 = styled.img`
   overflow: hidden;
   border-radius: 8px;
   height: 368px;
   width: 100%;
+  @media (width > 767px){
+    width: 56.26%;
+  }
 `;
 const Img1 = styled.img`
   height: 174px;
@@ -196,11 +269,15 @@ const Img1 = styled.img`
   border-radius: 8px;
   margin-bottom: 20px;
   width: 100%;
+  @media (width > 767px) {
+    margin-bottom: 17.67px;
+  }
 `;
 
 const InTheBoxDivText = styled.div`
   display: flex;
   margin-bottom: 8px;
+   overflow: hidden;
 `;
 const InTheBoxDivP1 = styled.p`
   font-style: normal;
@@ -209,6 +286,7 @@ const InTheBoxDivP1 = styled.p`
   line-height: 25px;
   color: ${ThemeData.colors.orange};
   margin-right: 24px;
+   overflow: hidden;
 `;
 const InTheBoxDivP2 = styled.p`
   font-weight: 500;
@@ -217,6 +295,7 @@ const InTheBoxDivP2 = styled.p`
   color: ${ThemeData.colors.darkBlack};
   mix-blend-mode: normal;
   opacity: 0.5;
+   overflow: hidden;
 `;
 
 const InTheBoxDivH1 = styled.h1`
@@ -228,6 +307,13 @@ const InTheBoxDivH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
   margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    font-size: 32px;
+line-height: 36px;
+letter-spacing: 1.14286px;
+width: 50%;
+  }
 `;
 const InTheBoxDiv = styled.div`
   margin-top: 88px;
@@ -235,6 +321,13 @@ const InTheBoxDiv = styled.div`
   flex-direction: column;
   padding: 0 24px;
   margin-bottom: 88px;
+  overflow: hidden;
+  @media (width > 767px){
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    
+  }
 `;
 const FeatureP = styled.p`
   font-weight: 500;
@@ -254,9 +347,22 @@ const FeatureH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
   margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    font-size: 32px;
+line-height: 36px;
+letter-spacing: 1.14286px;
+  }
 `;
 const FeaturesDiv = styled.div`
   padding: 0 24px;
+  overflow: hidden;
+  
+  @media (width > 767px) {
+    padding: 0 40px;
+    
+  }
+  
 `;
 const ButtonP = styled.p`
   width: 16px;
@@ -330,6 +436,10 @@ const BackButton = styled.button`
   &:hover {
     opacity: 1;
   }
+  @media (width > 767px) {
+    margin-top: 33px;
+    margin-left: 40px;
+  }
 `;
 
 const ProductButton = styled.button`
@@ -354,6 +464,13 @@ const OrangeP = styled.p`
   text-transform: uppercase;
   color: ${ThemeData.colors.orange};
   margin-bottom: 24px;
+  @media (width > 767px) {
+    font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+letter-spacing: 8.57143px;
+margin-bottom: 17px;
+  }
 `;
 const ProductH1 = styled.h1`
   font-weight: 700;
@@ -364,6 +481,13 @@ const ProductH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
   margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    margin-bottom: 32px;
+line-height: 32px;
+width: 339px;
+
+  }
 `;
 
 const ProductP = styled.p`
@@ -373,13 +497,24 @@ const ProductP = styled.p`
   /* text-align: center; */
   color: ${ThemeData.colors.darkBlack};
   opacity: 0.5;
-  margin-bottom: 24px;
+  margin-bottom: 24px;overflow: hidden;
+  @media (width > 767px) {
+    width: 339px;
+    /* width: 100%; */
+    margin-right: 39.5px;
+   
+  }
 `;
 
 const ProductText = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;overflow: hidden;
+  @media (width > 767px) {
+   
+   width: 50%;
+   
+  }
 `;
 
 const ProductDiv = styled.div`
@@ -387,8 +522,18 @@ const ProductDiv = styled.div`
   flex-direction: column;
   padding: 0 24px 0 24px;
   margin-bottom: 88px;
+  width: 100%;
+  overflow: hidden;
+  @media (width > 767px) {
+    flex-direction: row;
+   
+    padding: 0 40px;
+    justify-content: space-between;
+  }
 `;
 const ProductImg = styled.img`
   border-radius: 8px;
   margin-bottom: 32px;
+  width: 100%;
+ 
 `;

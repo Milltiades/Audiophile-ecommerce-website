@@ -16,10 +16,11 @@ export default function EarphonesPage() {
         <HeaderH1>Earphones</HeaderH1>
       </Header>
       <ProductDiv>
+        <ImgDiv>
         <ProductImg
           src="/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg"
           alt=""
-        />
+        /></ImgDiv>
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
           <ProductH1>YX1 WIRELESS EARPHONES</ProductH1>
@@ -29,7 +30,10 @@ export default function EarphonesPage() {
             even in noisy environments with its active noise cancellation
             feature.
           </ProductP>
-          <ProductButton onClick={() => navigate('yx1')}>See Product</ProductButton>
+          <ProductButton onClick={() => {
+            navigate('yx1')
+            context.HeaderGoFunc();
+            }}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
 
@@ -39,7 +43,23 @@ export default function EarphonesPage() {
   );
 }
 
+const ImgDiv = styled.div`
+@media (width > 767px){
+  width: 100%;
+height: 352px;
+background: ${ThemeData.colors.silver};
+border-radius: 8px;
+margin-bottom: 32px;
+
+align-items: center;
+display: flex;
+justify-content: center;
+overflow: hidden;
+
+}
+`
 const ProductButton = styled.button`
+  
   padding: 15px 29.5px 15px 31.5px;
   border: none;
   background: ${ThemeData.colors.orange};
@@ -53,6 +73,7 @@ const ProductButton = styled.button`
 `;
 
 const OrangeP = styled.p`
+ 
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -64,6 +85,7 @@ const OrangeP = styled.p`
   margin-bottom: 24px;
 `;
 const ProductH1 = styled.h1`
+ 
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
@@ -71,10 +93,20 @@ const ProductH1 = styled.h1`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
+  overflow: hidden;
   margin-bottom: 24px;
+  @media (width > 767px) {
+    margin-bottom: 32px;
+
+    font-size: 40px;
+line-height: 44px;
+letter-spacing: 1.42857px;
+width: 390px;
+  }
 `;
 
 const ProductP = styled.p`
+  
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
@@ -82,6 +114,11 @@ const ProductP = styled.p`
   color: ${ThemeData.colors.darkBlack};
   opacity: 0.5;
   margin-bottom: 24px;
+
+  @media (width > 767px) {
+    width: 572px;
+    margin-bottom: 32px;
+  }
 `;
 
 const ProductText = styled.div`
@@ -91,6 +128,7 @@ const ProductText = styled.div`
 `;
 
 const ProductDiv = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 24px 120px 24px;
@@ -98,13 +136,29 @@ const ProductDiv = styled.div`
 const ProductImg = styled.img`
   border-radius: 8px;
   margin-bottom: 32px;
+  width: 100%;
+  @media (width > 767px){
+    margin-bottom: 0;
+    width: 320px; 
+  }
 `;
 const Header = styled.div`
   width: 100%;
   background: ${ThemeData.colors.darkBlack};
-  padding: 32px 84px;
+  padding: 32px;
+  
   margin-bottom: 64px;
   overflow: hidden;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  @media (width > 767px) {
+    padding: 105px 0 97px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+  }
 `;
 const HeaderH1 = styled.h1`
   font-weight: 700;
@@ -115,4 +169,10 @@ const HeaderH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
   overflow: hidden;
+  @media (width > 767px) {
+    font-size: 40px;
+line-height: 44px;
+letter-spacing: 1.42857px;
+width: 283px;
+  }
 `;

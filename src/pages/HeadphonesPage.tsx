@@ -16,10 +16,11 @@ export default function HeadphonesPage() {
         <HeaderH1>headphones</HeaderH1>
       </Header>
       <ProductDiv>
+        <ImgDiv>
         <ProductImg
           src="/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg"
           alt=""
-        />
+        /></ImgDiv>
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
           <ProductH1>XX99 Mark II Headphones</ProductH1>
@@ -28,14 +29,18 @@ export default function HeadphonesPage() {
             It redefines your premium headphone experience by reproducing the
             balanced depth and precision of studio-quality sound.
           </ProductP>
-          <ProductButton onClick={() => navigate("xx99-mark-II")}>See Product</ProductButton>
+          <ProductButton onClick={() => {
+            navigate("xx99-mark-II")
+            context.HeaderGoFunc();
+            }}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>
+      <ImgDiv>
         <ProductImg
           src="/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg"
           alt=""
-        />
+        /> </ImgDiv>
         <ProductText>
           <ProductH1>XX99 Mark I Headphones</ProductH1>
           <ProductP>
@@ -43,14 +48,18 @@ export default function HeadphonesPage() {
             detailed and accurate audio reproduction for audiophiles, mixing
             engineers, and music aficionados alike in studios and on the go.
           </ProductP>
-          <ProductButton onClick={() => navigate("xx99-mark-I")}>See Product</ProductButton>
+          <ProductButton onClick={() => {
+            navigate("xx99-mark-I")
+            context.HeaderGoFunc();
+            }}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <ProductDiv>
+      <ImgDiv>
         <ProductImg
           src="/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg"
           alt=""
-        />
+        /> </ImgDiv>
         <ProductText>
           <ProductH1>XX59 Headphones</ProductH1>
           <ProductP>
@@ -58,7 +67,10 @@ export default function HeadphonesPage() {
             tastes with the XX59 headphones. The stylish yet durable versatile
             wireless headset is a brilliant companion at home or on the move.
           </ProductP>
-          <ProductButton onClick={() => navigate('xx59')}>See Product</ProductButton>
+          <ProductButton onClick={() => {
+            navigate('xx59')
+            context.HeaderGoFunc();
+            }}>See Product</ProductButton>
         </ProductText>
       </ProductDiv>
       <Menu/>
@@ -69,6 +81,22 @@ export default function HeadphonesPage() {
   );
 }
 
+
+const ImgDiv = styled.div`
+@media (width > 767px){
+  width: 100%;
+height: 352px;
+background: ${ThemeData.colors.silver};
+border-radius: 8px;
+margin-bottom: 32px;
+
+align-items: center;
+display: flex;
+justify-content: center;
+overflow: hidden;
+
+}
+`
 const ProductButton = styled.button`
   
   padding: 15px 29.5px 15px 31.5px;
@@ -104,7 +132,16 @@ const ProductH1 = styled.h1`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
+  overflow: hidden;
   margin-bottom: 24px;
+  @media (width > 767px) {
+    margin-bottom: 32px;
+
+    font-size: 40px;
+line-height: 44px;
+letter-spacing: 1.42857px;
+width: 390px;
+  }
 `;
 
 const ProductP = styled.p`
@@ -116,6 +153,11 @@ const ProductP = styled.p`
   color: ${ThemeData.colors.darkBlack};
   opacity: 0.5;
   margin-bottom: 24px;
+
+  @media (width > 767px) {
+    width: 572px;
+    margin-bottom: 32px;
+  }
 `;
 
 const ProductText = styled.div`
@@ -125,7 +167,7 @@ const ProductText = styled.div`
 `;
 
 const ProductDiv = styled.div`
-  
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 24px 120px 24px;
@@ -133,13 +175,29 @@ const ProductDiv = styled.div`
 const ProductImg = styled.img`
   border-radius: 8px;
   margin-bottom: 32px;
+  width: 100%;
+  @media (width > 767px){
+    margin-bottom: 0;
+    width: 320px; 
+  }
 `;
 const Header = styled.div`
   width: 100%;
   background: ${ThemeData.colors.darkBlack};
-  padding: 32px 84px;
+  padding: 32px;
+  
   margin-bottom: 64px;
   overflow: hidden;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  @media (width > 767px) {
+    padding: 105px 0 97px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+  }
 `;
 const HeaderH1 = styled.h1`
   font-weight: 700;
@@ -150,4 +208,10 @@ const HeaderH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
   overflow: hidden;
+  @media (width > 767px) {
+    font-size: 40px;
+line-height: 44px;
+letter-spacing: 1.42857px;
+width: 283px;
+  }
 `;

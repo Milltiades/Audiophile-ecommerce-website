@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import FooterComponent from "./components/FooterComponent";
 import GlobalStyles from "./components/GlobalStyles";
@@ -36,9 +36,17 @@ function App() {
   const [CurtNum, setCurtNum] = useState(0);
   const [isOrder, setIsOrder] = useState(false);
 
+  const refHome = useRef<any>();
+  
+  const HeaderGoFunc = () => {
+  refHome.current.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <MyContext.Provider
       value={{
+        refHome,
+        HeaderGoFunc,
         isOrder,
         setIsOrder,
         CurtNum,

@@ -21,12 +21,17 @@ export default function XX99Mark2Page() {
   
   return (
     <div style={{opacity:context.isCart  || context.isMenu ? "0.4" : "1", background: context.isCart || context.isMenu ? "#000000" : "transparent"}}>
-      <BackButton onClick={() => navigate("/headphones")}>Go Back</BackButton>
+      <BackButton onClick={() => {
+        navigate("/headphones")
+        context.HeaderGoFunc();
+        }}>Go Back</BackButton>
       <ProductDiv>
+        <ImgDiv>
         <ProductImg
-          src={xx99mark2?.image.mobile}
+          src={window.innerWidth < 768 ? xx99mark2?.image.mobile : xx99mark2?.image.tablet}
           alt=""
         />
+        </ImgDiv>
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
           <ProductH1>{xx99mark2?.name}</ProductH1>
@@ -79,6 +84,7 @@ export default function XX99Mark2Page() {
       </FeaturesDiv>
       <InTheBoxDiv>
         <InTheBoxDivH1>in the box</InTheBoxDivH1>
+        <DivFeatureRight>
         <InTheBoxDivText>
             <InTheBoxDivP1>{xx99mark2?.includes[0].quantity + "x"}</InTheBoxDivP1>
             <InTheBoxDivP2>{xx99mark2?.includes[0].item}</InTheBoxDivP2>
@@ -99,38 +105,50 @@ export default function XX99Mark2Page() {
             <InTheBoxDivP1>{xx99mark2?.includes[4].quantity + "x"}</InTheBoxDivP1>
             <InTheBoxDivP2>{xx99mark2?.includes[4].item}</InTheBoxDivP2>
         </InTheBoxDivText>
-
+        </DivFeatureRight>
       </InTheBoxDiv>
 
       <ImagesDiv>
-        
-        <Img1 src={xx99mark2?.gallery.first.mobile} alt="" />
-        <Img1 src={xx99mark2?.gallery.second.mobile} alt="" />
-        <Img3 src={xx99mark2?.gallery.third.mobile} alt="" />
+        <ImgDiv1>
+        <Img1 src={window.innerWidth < 768 ? xx99mark2?.gallery.first.mobile : xx99mark2?.gallery.first.tablet} alt="" />
+        <Img1 src={window.innerWidth < 768 ? xx99mark2?.gallery.second.mobile : xx99mark2?.gallery.second.tablet} alt="" />
+        </ImgDiv1>
+        <Img3 src={window.innerWidth < 768 ? xx99mark2?.gallery.third.mobile : xx99mark2?.gallery.third.tablet} alt="" />
       
       </ImagesDiv>
 
 
       <YuoMayAlsoLikeDiv>
       <H1>you may also like</H1>
+      <LikdeDivMain>
       <LikeDiv>
-        <LikeDivImg src={xx99mark2?.others[0].image.mobile} alt="" />
+        <LikeDivImg src={window.innerWidth < 768 ? xx99mark2?.others[0].image.mobile :xx99mark2?.others[0].image.tablet} alt="" />
       
       <LikeH1>{xx99mark2?.others[0].name}</LikeH1>
-      <LikeButton onClick={() => navigate("/headphones/xx99-mark-I")}>See Product</LikeButton>
+      <LikeButton onClick={() => {
+        navigate("/headphones/xx99-mark-I")
+        context.HeaderGoFunc();
+        }}>See Product</LikeButton>
       </LikeDiv>
-      <LikeDiv>
-        <LikeDivImg src={xx99mark2?.others[1].image.mobile} alt="" />
+      <LikeDiv style={{margin: "0 11px"}}>
+        <LikeDivImg src={window.innerWidth < 768 ? xx99mark2?.others[1].image.mobile : xx99mark2?.others[1].image.tablet} alt="" />
       
       <LikeH1>{xx99mark2?.others[1].name}</LikeH1>
-      <LikeButton onClick={() => navigate("/headphones/xx59")}>See Product</LikeButton>
+      <LikeButton onClick={() => {
+        navigate("/headphones/xx59")
+        context.HeaderGoFunc();
+        }}>See Product</LikeButton>
       </LikeDiv>
       <LikeDiv>
-        <LikeDivImg src={xx99mark2?.others[2].image.mobile} alt="" />
+        <LikeDivImg src={window.innerWidth < 768 ? xx99mark2?.others[2].image.mobile : xx99mark2?.others[2].image.tablet} alt="" />
       
       <LikeH1>{xx99mark2?.others[2].name}</LikeH1>
-      <LikeButton onClick={() => navigate("/speakers/zx9")}>See Product</LikeButton>
+      <LikeButton onClick={() => {
+        navigate("/speakers/zx9")
+        context.HeaderGoFunc();
+        }}>See Product</LikeButton>
       </LikeDiv>
+      </LikdeDivMain>
       </YuoMayAlsoLikeDiv>
 
       <Menu/>
@@ -141,42 +159,76 @@ export default function XX99Mark2Page() {
     </div>
   );
 }
+const LikdeDivMain = styled.div`
+  @media (width > 767px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+`
+
+const ImgDiv1 = styled.div`
+  @media (width > 767px) {
+    margin-right: 17.67px;
+    width: 40%;
+  }
+`
+const DivFeatureRight = styled.div`
+  width: 50%;
+`
+
+const ImgDiv = styled.div`
+@media (width > 767px){
+ 
+height: 480px;
+background: ${ThemeData.colors.silver};
+border-radius: 8px;
+margin-bottom: 32px;
+align-items: center;
+display: flex;
+justify-content: center;
+overflow: hidden;
+width: 40%
+
+
+
+}
+`
 
 const LikeButton = styled.button`
   font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 18px;
-letter-spacing: 1px;
-text-transform: uppercase;
-color: ${ThemeData.colors.white};
-background: ${ThemeData.colors.orange};
-border: none;
-padding: 15px 29.5px 15px 31.5px;
-margin-bottom: 56px;
-`
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: ${ThemeData.colors.white};
+  background: ${ThemeData.colors.orange};
+  border: none;
+  padding: 15px 29.5px 15px 31.5px;
+  margin-bottom: 56px;
+`;
 const H1 = styled.h1`
   font-weight: 700;
-font-size: 24px;
-line-height: 36px;
-text-align: center;
-letter-spacing: 0.857143px;
-text-transform: uppercase;
-color: ${ThemeData.colors.darkBlack};
-margin-bottom: 40px;
-
-`
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.857143px;
+  text-transform: uppercase;
+  color: ${ThemeData.colors.darkBlack};
+  margin-bottom: 40px;
+`;
 
 const LikeH1 = styled.h1`
   font-weight: 700;
-font-size: 24px;
-line-height: 33px;
-text-align: center;
-letter-spacing: 1.71429px;
-text-transform: uppercase;
-color: ${ThemeData.colors.darkBlack};
-margin-bottom: 32px;
-`
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 1.71429px;
+  text-transform: uppercase;
+  color: ${ThemeData.colors.darkBlack};
+  margin-bottom: 32px;
+`;
 
 const LikeDiv = styled.div`
   width: 100%;
@@ -184,13 +236,16 @@ const LikeDiv = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  
-`
+  @media (width > 767px) {
+   width: 33%;
+   
+  }
+`;
 const LikeDivImg = styled.img`
   width: 100%;
   border-radius: 8px;
   margin-bottom: 32px;
-`
+`;
 
 const YuoMayAlsoLikeDiv = styled.div`
   padding: 0 24px;
@@ -198,66 +253,97 @@ const YuoMayAlsoLikeDiv = styled.div`
   flex-direction: column;
   margin-top: 120px;
   margin-bottom: 120px;
-`
+  @media (width > 767px) {
+    padding: 0 40px;
+    
+  }
+`;
 
 const ImagesDiv = styled.div`
-    padding: 0 24px;
-    overflow: hidden;
-    width: 100%;
-`
+  padding: 0 24px;
+  overflow: hidden;
+  width: 100%;
+  @media (width > 767px) {
+    display: flex;
+    flex-direction: row;
+    padding: 0 40px;
+  }
+`;
 const Img3 = styled.img`
   overflow: hidden;
   border-radius: 8px;
   height: 368px;
   width: 100%;
-`
+  @media (width > 767px){
+    width: 56.26%;
+  }
+`;
 const Img1 = styled.img`
   height: 174px;
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 20px;
   width: 100%;
-`
+  @media (width > 767px) {
+    margin-bottom: 17.67px;
+  }
+`;
 
 const InTheBoxDivText = styled.div`
-    display: flex;
-    margin-bottom: 8px;
-
-`
+  display: flex;
+  margin-bottom: 8px;
+   overflow: hidden;
+`;
 const InTheBoxDivP1 = styled.p`
-    font-style: normal;
-font-weight: 700;
-font-size: 15px;
-line-height: 25px;
-color: ${ThemeData.colors.orange};
-margin-right: 24px;
-`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+  color: ${ThemeData.colors.orange};
+  margin-right: 24px;
+   overflow: hidden;
+`;
 const InTheBoxDivP2 = styled.p`
-    font-weight: 500;
-font-size: 15px;
-line-height: 25px;
-color: ${ThemeData.colors.darkBlack};
-mix-blend-mode: normal;
-opacity: 0.5;
-`
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  color: ${ThemeData.colors.darkBlack};
+  mix-blend-mode: normal;
+  opacity: 0.5;
+   overflow: hidden;
+`;
 
 const InTheBoxDivH1 = styled.h1`
-   font-style: normal;
+  font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
   letter-spacing: 0.857143px;
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
-  margin-bottom: 24px; 
-`
+  margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    font-size: 32px;
+line-height: 36px;
+letter-spacing: 1.14286px;
+width: 50%;
+  }
+`;
 const InTheBoxDiv = styled.div`
-margin-top: 88px;
+  margin-top: 88px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  margin-bottom: 88px;
+  overflow: hidden;
+  @media (width > 767px){
+    padding: 0 40px;
     display: flex;
-    flex-direction: column;
-    padding: 0 24px;
-    margin-bottom: 88px;
-`
+    flex-direction: row;
+    
+  }
+`;
 const FeatureP = styled.p`
   font-weight: 500;
   font-size: 15px;
@@ -276,9 +362,22 @@ const FeatureH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
   margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    font-size: 32px;
+line-height: 36px;
+letter-spacing: 1.14286px;
+  }
 `;
 const FeaturesDiv = styled.div`
-padding: 0 24px;
+  padding: 0 24px;
+  overflow: hidden;
+  
+  @media (width > 767px) {
+    padding: 0 40px;
+    
+  }
+  
 `;
 const ButtonP = styled.p`
   width: 16px;
@@ -291,7 +390,6 @@ const ButtonP = styled.p`
   color: ${ThemeData.colors.darkBlack};
   margin-left: 20px;
   margin-right: 21px;
-  
 `;
 const ButtonMinus = styled.button`
   width: 16px;
@@ -353,6 +451,10 @@ const BackButton = styled.button`
   &:hover {
     opacity: 1;
   }
+  @media (width > 767px) {
+    margin-top: 33px;
+    margin-left: 40px;
+  }
 `;
 
 const ProductButton = styled.button`
@@ -365,7 +467,6 @@ const ProductButton = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
-  
 `;
 
 const OrangeP = styled.p`
@@ -378,6 +479,13 @@ const OrangeP = styled.p`
   text-transform: uppercase;
   color: ${ThemeData.colors.orange};
   margin-bottom: 24px;
+  @media (width > 767px) {
+    font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+letter-spacing: 8.57143px;
+margin-bottom: 17px;
+  }
 `;
 const ProductH1 = styled.h1`
   font-weight: 700;
@@ -388,6 +496,13 @@ const ProductH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
   margin-bottom: 24px;
+  overflow: hidden;
+  @media (width > 767px) {
+    margin-bottom: 32px;
+line-height: 32px;
+width: 339px;
+
+  }
 `;
 
 const ProductP = styled.p`
@@ -397,13 +512,24 @@ const ProductP = styled.p`
   /* text-align: center; */
   color: ${ThemeData.colors.darkBlack};
   opacity: 0.5;
-  margin-bottom: 24px;
+  margin-bottom: 24px;overflow: hidden;
+  @media (width > 767px) {
+    width: 339px;
+    /* width: 100%; */
+    margin-right: 39.5px;
+   
+  }
 `;
 
 const ProductText = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;overflow: hidden;
+  @media (width > 767px) {
+   
+   width: 50%;
+   
+  }
 `;
 
 const ProductDiv = styled.div`
@@ -411,8 +537,18 @@ const ProductDiv = styled.div`
   flex-direction: column;
   padding: 0 24px 0 24px;
   margin-bottom: 88px;
+  width: 100%;
+  overflow: hidden;
+  @media (width > 767px) {
+    flex-direction: row;
+   
+    padding: 0 40px;
+    justify-content: space-between;
+  }
 `;
 const ProductImg = styled.img`
   border-radius: 8px;
   margin-bottom: 32px;
+  width: 100%;
+ 
 `;

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { MyContext } from '../App';
 import { ThemeData } from './ThemeDataComponent';
 
 export default function StarterBackgroundDivComponent() {
   const navigate = useNavigate();
+  const context = useContext(MyContext)
   return (
     <>
     <BackgroundDiv>
@@ -15,7 +17,10 @@ export default function StarterBackgroundDivComponent() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </BackText>
-          <Button onClick={() => navigate("/headphones/xx99-mark-II")}>See Product</Button>
+          <Button onClick={() => {
+            navigate("/headphones/xx99-mark-II")
+            context.HeaderGoFunc();
+            }}>See Product</Button>
         </ContentDiv>
       </BackgroundDiv>
     </>
@@ -34,6 +39,15 @@ const BackgroundDiv = styled.div`
   background-size: cover;
   padding-bottom: 104px;
   top: -59.78px;
+  @media (width > 767px) {
+    background-image: url("/assets/home/tablet/image-header.jpg");
+    
+    height: 729px;
+    padding-right: 186.61px;
+    padding-left: 185.61px;
+    padding-bottom:167px;
+    
+  }
   
 `;
 const ContentDiv = styled.div`

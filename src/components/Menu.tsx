@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MyContext } from "../App";
@@ -7,11 +7,20 @@ import { ThemeData } from "./ThemeDataComponent";
 export default function Menu() {
   const navigate = useNavigate();
   const context = useContext(MyContext)
+
+  
+
+ 
+
+
+  
+  
   return (
+
     <>
       <TripleDiv>
        
-        <Category style={{zIndex: "3"}}>
+        <Category >
           <CategoryImgDiv>
             <Img src="/assets/shared/desktop/image-category-thumbnail-headphones.png" alt="" />
           </CategoryImgDiv>
@@ -19,7 +28,9 @@ export default function Menu() {
             <CategoryP>HEADPHONES</CategoryP>
             <CategoryDivButton onClick={() => {
               context.setIsMenu(false)
-              navigate("/headphones")}}>
+              navigate("/headphones")
+              context.HeaderGoFunc();
+              }}>
             <CategoryDivButtonP>shop</CategoryDivButtonP>
             <ImgArrowRight
               src="/assets/shared/desktop/icon-arrow-right.svg"
@@ -28,7 +39,7 @@ export default function Menu() {
           </CategoryDivButton>
           </CategoryDiv>
         </Category>
-        <Category style={{zIndex: "2", top:"-84px", position:"relative"}}>
+        <Category2>
           <CategoryImgDiv>
             <Img src="/assets/shared/desktop/image-category-thumbnail-speakers.png" alt="" />
           </CategoryImgDiv>
@@ -36,7 +47,9 @@ export default function Menu() {
             <CategoryP>SPEAKERS</CategoryP>
             <CategoryDivButton onClick={() => {
               context.setIsMenu(false)
-              navigate("/speakers")}}>
+              navigate("/speakers")
+              context.HeaderGoFunc();
+              }}>
             <CategoryDivButtonP>shop</CategoryDivButtonP>
             <ImgArrowRight
               src="/assets/shared/desktop/icon-arrow-right.svg"
@@ -44,8 +57,8 @@ export default function Menu() {
             />
           </CategoryDivButton>
           </CategoryDiv>
-        </Category>
-        <Category style={{zIndex: "1", top:"-168px", position:"relative"}}>
+        </Category2>
+        <Category3 >
           <CategoryImgDiv>
             <Img src="/assets/shared/desktop/image-category-thumbnail-earphones.png" alt="" />
           </CategoryImgDiv>
@@ -53,7 +66,9 @@ export default function Menu() {
             <CategoryP>EARPHONES</CategoryP>
             <CategoryDivButton onClick={() => {
               context.setIsMenu(false)
-              navigate("/earphones")}}>
+              navigate("/earphones")
+              context.HeaderGoFunc();
+              }}>
             <CategoryDivButtonP>shop</CategoryDivButtonP>
             <ImgArrowRight
               src="/assets/shared/desktop/icon-arrow-right.svg"
@@ -61,7 +76,7 @@ export default function Menu() {
             />
           </CategoryDivButton>
           </CategoryDiv>
-        </Category>
+        </Category3>
        
 
         
@@ -69,6 +84,7 @@ export default function Menu() {
     </>
   );
 }
+
 
 const CategoryP = styled.p`
   font-weight: 700;
@@ -87,10 +103,50 @@ const Category = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
-  
-  
+  z-index: 3;
+  @media (width > 767px) {
+    all: unset;
+     display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  position: relative
+  }
+`
+
+const Category2 = styled(Category)`
+  z-index: 2;
+  top:-84px ;
+  position:relative;
+  @media (width > 767px) {
+    all: unset;
+     display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 10px;
+  }
   
 `
+
+const Category3 = styled(Category)`
+z-index: 1;
+ top:-168px; 
+ position:relative;
+ 
+ @media (width > 767px) {
+    all: unset;
+     display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+    
+  }
+  
+`
+
 
 const CategoryImgDiv = styled.div`
   width: 100%;
@@ -108,6 +164,7 @@ const Img = styled.img`
   width: 170px;
   z-index: 3;
   overflow: hidden;
+  height: 160px;
   
 `
 
@@ -156,16 +213,24 @@ const CategoryDivButtonP = styled.p`
 const TripleDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   overflow: hidden;
   padding: 0 24px;
   position: relative;
   top: -100px;
   background: ${ThemeData.colors.white};
   margin-top: 32px;
+
+  @media (width > 767px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 39px;
+    padding-bottom: 67px;
+  }
   
  
 `;
+
 
 
 

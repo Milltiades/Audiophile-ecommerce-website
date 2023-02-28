@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
 import { ThemeData } from "./ThemeDataComponent";
 
 export default function FooterComponent() {
   const navigate = useNavigate();
-  
+  const context = useContext(MyContext)
 
   
   return (
@@ -18,16 +19,26 @@ export default function FooterComponent() {
             <FooterUpLi>
               <LiButtons onClick={() => {
                 navigate("/");
+                context.HeaderGoFunc();
                 }}>Home</LiButtons>
             </FooterUpLi>
             <FooterUpLi>
-              <LiButtons onClick={() => navigate("/headphones")}>Headphones</LiButtons>
+              <LiButtons onClick={() => {
+                navigate("/headphones");
+                context.HeaderGoFunc();
+                }}>Headphones</LiButtons>
             </FooterUpLi>
             <FooterUpLi>
-              <LiButtons onClick={() => navigate("/speakers")}>speakers</LiButtons>
+              <LiButtons onClick={() => {
+                navigate("/speakers");
+                context.HeaderGoFunc();
+                }}>speakers</LiButtons>
             </FooterUpLi>
             <FooterUpLi>
-              <LiButtons onClick={() => navigate("/earphones")}>earphones</LiButtons>
+              <LiButtons onClick={() => {
+                navigate("/earphones");
+                context.HeaderGoFunc();
+            }}>earphones</LiButtons>
             </FooterUpLi>
           </FooterUpUl>
         </FooterUp>
@@ -38,17 +49,31 @@ export default function FooterComponent() {
             to helping you get the most out of personal audio. Come and visit
             our demo facility - we’re open 7 days a week.
           </FooterDownP>
+          <FooterLastDiv >
           <FooterDownlastP>Copyright 2021. All Rights Reserved</FooterDownlastP>
           <Socials>
             <img src="/assets/shared/desktop/icon-facebook.svg" alt="" />
             <TwitterImg src="/assets/shared/desktop/icon-twitter.svg" alt="" />
             <img src="/assets/shared/desktop/icon-instagram.svg" alt="" />
           </Socials>
+          </FooterLastDiv>
         </FooterDown>
       </Footer>
     </>
   );
 }
+
+const FooterLastDiv = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+@media (width > 767px) {
+  flex-direction: row;
+  text-align: start;
+  justify-content: space-between;
+}
+`
 const LiButtons = styled.button`
   border: none;
   background: transparent;
@@ -89,6 +114,9 @@ const FooterDownP = styled.p`
   text-align: center;
   opacity: 0.5;
   color: ${ThemeData.colors.white};
+  @media (width > 767px) {
+    text-align: start;
+  }
 `;
 const FooterDownlastP = styled.p`
   font-style: normal;
@@ -114,6 +142,10 @@ const Footer = styled.div`
   background: ${ThemeData.colors.black};
   align-items: center;
   margin-top: 120px;
+  @media (width > 767px){
+    padding: 0 40px 46px ;
+    align-items: flex-start;
+  }
 `;
 
 const FooterUp = styled.div`
@@ -122,16 +154,26 @@ const FooterUp = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (width > 767px) {
+    align-items: flex-start;
+  }
 `;
 
 const FooterUpUl = styled.ul`
   margin-top: 48px;
   text-align: center;
+  @media (width > 767px) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 32px;
+  }
 `;
 const FooterUpLi = styled.li`
   list-style: none;
   margin-bottom: 16px;
- 
+  @media (width > 767px) {
+    margin-right: 34px ;
+  }
 `;
 
 const FooterDown = styled.div`
@@ -139,4 +181,5 @@ const FooterDown = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
 `;

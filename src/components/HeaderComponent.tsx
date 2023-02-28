@@ -12,11 +12,11 @@ export default function HeaderComponent() {
 
   return (
     <>
-      <Header>
+      <Header ref={context.refHome}>
         <ButtonIcon onClick={() => context.setIsMenu(!context.isMenu)}>
           <ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" />
         </ButtonIcon>
-        <img src="/assets/shared/desktop/logo.svg" alt="" />
+        <HImg src="/assets/shared/desktop/logo.svg" alt="" />
         <ButtonIcon onClick={() => context.setIsCart(!context.isCart)}>
           <ImgC src="/assets/shared/desktop/icon-cart.svg" alt="" />
         </ButtonIcon>
@@ -276,7 +276,7 @@ export default function HeaderComponent() {
           <CircleDiv >
             <img src="/assets/checkout/icon-order-confirmation.svg" alt="" />
           </CircleDiv>
-          <H1>THANK YOU FOR YOUR ORDER</H1>
+          <H1>THANK YOU <br/> FOR YOUR ORDER</H1>
           <PP>You will receive an email confirmation shortly.</PP>
           <Content>
             <Content1>
@@ -292,7 +292,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityXX99M2}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityXX99M2}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : context.itemAddXX99M1 ? (
@@ -307,7 +307,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityXX99M1}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityXX99M1}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : context.itemAddXX59 ? (
@@ -323,7 +323,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityXX59}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityXX59}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : context.itemAddYX1 ? (
@@ -339,7 +339,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityYX1}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityYX1}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : context.itemAddZX7 ? (
@@ -355,7 +355,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityZX7}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityZX7}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : context.itemAddZX9 ? (
@@ -371,7 +371,7 @@ export default function HeaderComponent() {
                     </CartItemText>
                   </PriceText>
                   <ItemQuantity>
-                    <ButtonP>{"x" + context.QuantityZX9}</ButtonP>
+                    <ButtonPX>{"x" + context.QuantityZX9}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
               ) : (
@@ -428,6 +428,8 @@ const Content1 = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 24px;
+  padding: 0 24px;
+ 
 `;
 const Content2 = styled.div`
   display: flex;
@@ -438,6 +440,7 @@ const Content = styled.div`
   background: #f1f1f1;
   border-radius: 8px;
   overflow: hidden;
+
   
 `;
 const PP = styled.p`
@@ -462,7 +465,16 @@ const H1 = styled.h1`
   color: #000000;
   overflow: hidden;
   margin-top: 23px;
-`;
+  @media (width > 767px) {
+    
+    font-weight: 700;
+font-size: 32px;
+line-height: 36px;
+letter-spacing: 1.14286px;
+  }
+`
+
+
 const CircleDiv = styled.div`
   width: 64px;
   height: 64px;
@@ -492,6 +504,10 @@ const OrderDiv = styled.div<any>`
   z-index: 1;
   overflow: hidden;
   margin-top: 24px;
+
+  @media (width > 767px) {
+    padding: 132px 114px;
+  }
 `;
 
 const PriceText = styled.div`
@@ -556,6 +572,17 @@ const ButtonP = styled.p`
   margin-left: 12px;
   margin-right: 13px;
 `;
+
+const ButtonPX = styled.p`
+  
+  font-weight: 700;
+font-size: 15px;
+line-height: 25px;
+text-align: right;
+color: #000000;
+mix-blend-mode: normal;
+opacity: 0.5;
+`
 const ButtonMinus = styled.button`
   width: 16px;
   height: 18px;
@@ -600,7 +627,18 @@ const ItemQuantity = styled.div`
   flex-direction: row;
   padding: 7px 11.5px;
   background: ${ThemeData.colors.silver};
+  align-items: center;
 `;
+const XP = styled.p`
+
+font-weight: 700;
+font-size: 15px;
+line-height: 25px;
+text-align: right;
+color: #000000;
+mix-blend-mode: normal;
+opacity: 0.5;
+`
 
 const CartItemText = styled.div`
   display: flex;
@@ -656,6 +694,10 @@ const CartDiv = styled.div<any>`
   z-index: 1;
   overflow: hidden;
   margin-top: 24px;
+
+  @media (width > 767px) {
+    padding: 0 40px 0 50%;
+  }
 `;
 const CartMainDiv = styled.div`
   background: ${ThemeData.colors.white};
@@ -663,6 +705,9 @@ const CartMainDiv = styled.div`
 
   border-radius: 8px;
   padding: 31px 29px 31px 28px;
+  @media (width > 767px) {
+    padding: 31px 32px 31px 33px;
+  }
 `;
 const MenuDiv = styled(CartDiv)`
   padding: 0;
@@ -679,7 +724,17 @@ const Header = styled.div`
   background: ${ThemeData.colors.headerBlack};
   align-items: center;
   justify-content: space-between;
+  @media (width > 767px) {
+    padding: 32px 39.61px;
+  }
 `;
+const HImg = styled.img`
+
+@media (width > 767px) {
+    margin-right: calc(100% - 261px);
+  }
+`
+
 
 const UnderHeaderLine = styled.div`
   width: 100%;
