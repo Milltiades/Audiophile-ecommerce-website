@@ -549,6 +549,10 @@ const ProductButton = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
+  transition: all .3s ease;
+  &:hover {
+    background: #FBAF85;
+  }
 `;
 
 const OrangeP = styled.p`

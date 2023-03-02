@@ -149,6 +149,10 @@ const ProductButton = styled.button`
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
   margin-bottom: 56px;
+  transition: all .3s ease;
+  &:hover {
+    background: #FBAF85;
+  }
 `;
 
 const OrangeP = styled.p`

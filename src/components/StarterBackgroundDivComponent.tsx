@@ -136,4 +136,8 @@ const Button = styled.button`
   background: ${ThemeData.colors.orange};
   padding: 15px 29.5px 15px 31.5px;
   border: none;
+  transition: all .3s ease;
+  &:hover {
+    background: #FBAF85;
+  }
 `;

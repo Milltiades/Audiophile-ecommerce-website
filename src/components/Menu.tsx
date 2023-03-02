@@ -218,6 +218,8 @@ const CategoryDivButton = styled.button`
   background: transparent;
   margin-top: 17px;
   overflow: hidden;
+
+ 
 `;
 const CategoryDivButtonP = styled.p`
   font-weight: 700;
@@ -228,6 +230,11 @@ const CategoryDivButtonP = styled.p`
   color: ${ThemeData.colors.darkBlack};
   opacity: 0.5;
   overflow: hidden;
+   transition: all .3s ease;
+  &:hover {
+    color: #D87D4A;
+    opacity: 1;
+  }
 `;
 
 

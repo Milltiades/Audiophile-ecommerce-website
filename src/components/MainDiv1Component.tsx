@@ -12,11 +12,11 @@ export default function MainDiv1Component() {
     <>
       <MainDiv>
         <Orange>
-          <>
+          <OrangeDiv>
           <OrangeCircle1></OrangeCircle1>
           <OrangeCircle2></OrangeCircle2>
           <OrangeCircle3></OrangeCircle3>
-          </>
+          </OrangeDiv>
           <OrangeContent>
             <OrangeImg src={window.innerWidth < 1200 ? "/assets/home/mobile/image-speaker-zx9.png" : "/assets/home/desktop/image-speaker-zx9.png"} alt="" />
             <DivOranInside>
@@ -29,6 +29,8 @@ export default function MainDiv1Component() {
               </DivOranInside>
           </OrangeContent>
         </Orange>
+
+
         <ZX7Speaker>
           <ZX7SpeakerP>ZX7 SPEAKER</ZX7SpeakerP>
           <ZX7SpeakerButton onClick={() => {
@@ -65,7 +67,7 @@ overflow: hidden;
 `
 
 const OrangeButton = styled.button`
-
+/* position: relative; */
   font-weight: 700;
 font-size: 13px;
 line-height: 18px;
@@ -76,6 +78,10 @@ color: ${ThemeData.colors.white};
 background: ${ThemeData.colors.darkBlack};
 margin-top: 24px;
 border: none;
+transition: all .3s ease;
+&:hover {
+  background: #4C4C4C;
+}
 
 @media (width > 767px) {
   margin-top: 40px;
@@ -83,6 +89,7 @@ border: none;
 `
 
 const OrangeP = styled.p`
+width: 280px;
 margin: 0 auto;
   font-weight: 500;
 font-size: 15px;
@@ -126,24 +133,24 @@ const OrangeImg = styled.img`
   width: 172.25px;
   height: 207px;
   @media (width > 1200px) {
-    width: 410.23px;
-    height: 493px;
+    width: 370.23px;
+    height: 463px;
     margin-left: 117px;
+    margin-top: 55px;
   }
 `;
 
 const OrangeContent = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: -1120px;
+ position: relative;
+ z-index: 50;
+ margin-top: -103.5px;
   width: 100%;
   align-items: center;
   padding: 0 24px 55px 24px;
-  @media (width > 767px){
-    
-    top: -1894px;
-  }
+  overflow: hidden;
+ 
   @media (width > 1200px) {
     align-items: flex-start;
     flex-direction: row;
@@ -213,6 +220,11 @@ const YX1WhiteButton = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
+   transition: all .3s ease;
+  &:hover {
+    background: #000000;
+    color: white;
+  }
 `;
 const YX1Earphones = styled.div`
   display: flex;
@@ -227,6 +239,7 @@ const YX1Earphones = styled.div`
  
 `;
 const ZX7Speaker = styled.div`
+position: relative;
   margin-top: 24px;
   border-radius: 8px;
   background: ${ThemeData.colors.silver};
@@ -237,6 +250,7 @@ const ZX7Speaker = styled.div`
   background-size: cover;
   padding: 101px 0 101px 24px;
   overflow: hidden;
+ 
   @media (width > 767px) {
 padding: 101px 0 101px 62px;
  margin-top: 32px;
@@ -268,6 +282,11 @@ const ZX7SpeakerButton = styled.button`
   background: transparent;
   border: 1px solid #000000;
   margin-top: 32px;
+  transition: all .3s ease;
+  &:hover {
+    background: #000000;
+    color: white;
+  }
 `;
 
 const Orange = styled.div`
@@ -275,6 +294,8 @@ const Orange = styled.div`
   border-radius: 8px;
   overflow: hidden;
   height: 600px;
+  align-items: center;
+ 
   @media (width > 767px){
     height: 720px;
   }
@@ -284,24 +305,37 @@ const Orange = styled.div`
   
   
 `;
+
+const OrangeDiv = styled.div`
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 158.5px;
+z-index: -5;
+ 
+`
 const OrangeCircle1 = styled.div`
   width: 279px;
   height: 279px;
   border-radius: 50%;
   border: 1px solid ${ThemeData.colors.white};
   background: transparent;
-  position: relative;
+  position: absolute;
   opacity: 0.2;
   margin: 0 auto;
-  margin-top: 19px;
+  overflow: hidden;
   @media (width > 767px) {
     width: 472px;
-  height: 472px;
-  top: -52px;
+    height: 472px;  overflow: hidden;
+    
   }
   @media (width > 1200px) {
-    left: -150px;
+    margin: 500px 31.31% 0 0;  overflow: hidden;
   }
+  
+ 
 `;
 const OrangeCircle2 = styled.div`
   width: 320px;
@@ -309,15 +343,18 @@ const OrangeCircle2 = styled.div`
   border-radius: 50%;
   border: 1px solid ${ThemeData.colors.white};
   background: transparent;
-  position: relative;
+  position: absolute;
   opacity: 0.2;
   margin: 0 auto;
-  top: -299px;
+  overflow: hidden;
   @media (width > 767px) {
     width: 542px;
-  height: 542px;
-  top: -560px;
+    height: 542px;  overflow: hidden;
   }
+   @media (width > 1200px) {
+    margin: 500px 31.31% 0 0;  overflow: hidden;
+  }
+ 
 `;
 const OrangeCircle3 = styled.div`
   width: 558px;
@@ -325,16 +362,16 @@ const OrangeCircle3 = styled.div`
   border-radius: 50%;
   border: 1px solid ${ThemeData.colors.white};
   background: transparent;
-  position: relative;
+  position: absolute;
   opacity: 0.2;
   margin: 0 auto;
-  top: -760px;
-  left: -30.8%;
-@media (width > 767px) {
+  overflow-x: hidden;
+  @media (width > 767px) {
     width: 944px;
-  height: 944px;
-  top: -1360px;
-  left: -14%;
+    height: 944px;  overflow: hidden;
+  }
+   @media (width > 1200px) {
+    margin: 500px 31.31% 0 0;  overflow: hidden;
   }
 
 `;
@@ -342,6 +379,7 @@ const OrangeCircle3 = styled.div`
 const MainDiv = styled.div`
   padding: 0 24px;
   margin-bottom: 120px;
+  
   @media (width > 767px) {
     padding: 0 39px;
   }
