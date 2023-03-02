@@ -34,6 +34,7 @@ color: ${ThemeData.colors.darkBlack};
 body {
 min-width: 320px;
 min-height: 100vh;
+/* background: #191919; */
 }
 button{
   cursor: pointer;

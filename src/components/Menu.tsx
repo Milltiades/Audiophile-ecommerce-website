@@ -95,6 +95,12 @@ letter-spacing: 1.07143px;
 text-transform: uppercase;
 color: ${ThemeData.colors.darkBlack};
 overflow: hidden;
+@media (width > 1200px) {
+  font-size: 18px;
+line-height: 25px;
+text-align: center;
+letter-spacing: 1.28571px;
+}
 `
 
 const Category = styled.div`
@@ -112,6 +118,7 @@ const Category = styled.div`
   overflow: hidden;
   position: relative
   }
+ 
 `
 
 const Category2 = styled(Category)`
@@ -126,6 +133,9 @@ const Category2 = styled(Category)`
   overflow: hidden;
   position: relative;
   margin: 0 10px;
+  @media (width > 1200px) {
+    margin: 0 30px;
+  }
   }
   
 `
@@ -158,6 +168,9 @@ const CategoryImgDiv = styled.div`
   overflow: hidden;
   position: relative;
   top: 100px;
+  @media (width > 1200px) {
+    top: 125px;
+  }
   
 `
 const Img = styled.img`
@@ -165,6 +178,10 @@ const Img = styled.img`
   z-index: 3;
   overflow: hidden;
   height: 160px;
+  @media (width > 1200px) {
+   width :200px ;
+   height: 200px;
+  }
   
 `
 
@@ -182,6 +199,10 @@ const CategoryDiv = styled.div`
   position: relative; */
   background: #F1F1F1;
 border-radius: 8px;
+ @media (width > 1200px) {
+   height: 204px; 
+    padding: 116px 107px 22px 109px;
+  }
 `
 
 
@@ -228,6 +249,9 @@ const TripleDiv = styled.div`
     padding-bottom: 67px;
   }
   
+  @media (width > 1200px) {
+    padding: 0 165px;
+  }
  
 `;
 

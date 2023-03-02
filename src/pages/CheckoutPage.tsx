@@ -20,6 +20,7 @@ export default function CheckoutPage() {
       >
         Go Back
       </BackButton>
+      <DivCC>
       <CheckoutDiv>
         <H1>CHECKOUT</H1>
         <BillingDiv>
@@ -247,9 +248,20 @@ export default function CheckoutPage() {
           CONTINUE & PAY
         </Button>
       </CartMainDiv>
+      </DivCC>
     </Background>
   );
 }
+
+const DivCC = styled.div`
+  @media (width > 1200px){
+    display: flex;
+    flex-direction: row;
+    padding: 0 165px;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
 
 const P1DP2D = styled.div`
  @media (width > 767px) {
@@ -474,6 +486,11 @@ const CartMainDiv = styled.div`
   margin-top: 32px;
   border-radius: 8px;
   padding: 31px 29px 31px 28px;
+  @media (width > 1200px) {
+    width: 39%;
+    align-self: flex-start;
+    margin-top: 0;
+  }
 `;
 /////////
 const CircleLil = styled.div`
@@ -512,6 +529,9 @@ const BackButton = styled.button`
   &:hover {
     opacity: 1;
   }
+ @media (width > 1200px) {
+  margin-left: 165px;
+ }
 `;
 
 const H1 = styled.h1`
@@ -587,7 +607,7 @@ const Background = styled.div<any>`
   @media (width > 767px) {
     padding: 48px 40px 116px 39px;
   }
-
+  
   filter: ${(props) => props.blur};
 `;
 const CheckoutDiv = styled.div<any>`
@@ -598,5 +618,8 @@ const CheckoutDiv = styled.div<any>`
   border-radius: 8px;
   @media (width > 767px) {
     padding: 30px 27px 30px 28px;
+  }
+  @media (width > 1200px) {
+    width: 59%;
   }
 `;

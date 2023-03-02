@@ -20,7 +20,12 @@ export default function ZX9Page() {
         }}>Go Back</BackButton>
       <ProductDiv>
       <ImgDiv>
-        <ProductImg src={zx9?.image.mobile} alt="" />
+      <ProductImg src={
+          window.innerWidth < 768 ? zx9?.image.mobile : 
+          window.innerWidth > 1200 ? zx9?.image.desktop :
+          zx9?.image.tablet
+          
+          } alt="" />
         </ImgDiv>
         <ProductText>
           <OrangeP>NEW PRODUCT</OrangeP>
@@ -50,7 +55,9 @@ export default function ZX9Page() {
             }}>ADD TO CART</ProductButton>
           </ButtonsDiv>
         </ProductText>
+        
       </ProductDiv>
+      <DivFIn>
       <FeaturesDiv>
         <FeatureH1>FEATURES</FeatureH1>
         <FeatureP>
@@ -95,50 +102,70 @@ export default function ZX9Page() {
         </InTheBoxDivText>
         </DivFeatureRight>
       </InTheBoxDiv>
-
+      </DivFIn>
       <ImagesDiv>
-      <ImgDiv1>
-        <Img1 src={window.innerWidth < 768 ? zx9?.gallery.first.mobile : zx9?.gallery.first.tablet} alt="" />
-        <Img1 src={window.innerWidth < 768 ? zx9?.gallery.second.mobile : zx9?.gallery.second.tablet} alt="" />
+        <ImgDiv1>
+        <Img1 src={
+          window.innerWidth < 768 ? zx9?.gallery.first.mobile : 
+          window.innerWidth > 1200 ? zx9?.gallery.first.desktop : 
+          zx9?.gallery.first.tablet
+          
+          } alt="" />
+        <Img1 src={
+          window.innerWidth < 768 ? zx9?.gallery.second.mobile : 
+          window.innerWidth > 1200 ? zx9?.gallery.second.desktop : 
+          zx9?.gallery.second.tablet
+          } alt="" />
         </ImgDiv1>
-        <Img3 src={window.innerWidth < 768 ? zx9?.gallery.third.mobile : zx9?.gallery.third.tablet} alt="" />
+        <Img3 src={
+          window.innerWidth < 768 ? zx9?.gallery.third.mobile :
+          window.innerWidth > 1200 ? zx9?.gallery.third.desktop : 
+          zx9?.gallery.third.tablet} alt="" />
       </ImagesDiv>
 
       <YuoMayAlsoLikeDiv>
         <H1>you may also like</H1>
         <LikdeDivMain>
         <LikeDiv>
-          <LikeDivImg src={window.innerWidth < 768 ? zx9?.others[0].image.mobile : zx9?.others[0].image.tablet} alt="" />
+          <LikeDivImg src={
+            window.innerWidth < 768 ? zx9?.others[0].image.mobile : 
+            window.innerWidth > 1200 ? zx9?.others[0].image.desktop : 
+            zx9?.others[0].image.tablet
+            } alt="" />
 
           <LikeH1>{zx9?.others[0].name}</LikeH1>
           <LikeButton onClick={() => {
-            navigate("/speakers/zx7")
+            navigate("/headphones/xx99-mark-II")
             context.HeaderGoFunc();
             }}>
             See Product
           </LikeButton>
         </LikeDiv>
-        <LikeDiv style={{margin: "0 11px"}}>
-          <LikeDivImg src={window.innerWidth < 768 ? zx9?.others[1].image.mobile : zx9?.others[1].image.tablet} alt="" />
+        <LikeDiv2 >
+          <LikeDivImg src={
+            window.innerWidth < 768 ? zx9?.others[1].image.mobile : 
+            window.innerWidth > 1200 ? zx9?.others[1].image.desktop : 
+            zx9?.others[1].image.tablet
+            } alt="" />
 
           <LikeH1>{zx9?.others[1].name}</LikeH1>
           <LikeButton onClick={() => {
             navigate("/headphones/xx99-mark-I")
             context.HeaderGoFunc();
-            }}>
-            See Product
-          </LikeButton>
-        </LikeDiv>
+            }}>See Product</LikeButton>
+        </LikeDiv2>
         <LikeDiv>
-          <LikeDivImg src={window.innerWidth < 768 ? zx9?.others[2].image.mobile : zx9?.others[2].image.tablet} alt="" />
+          <LikeDivImg src={
+            window.innerWidth < 768 ? zx9?.others[2].image.mobile : 
+            window.innerWidth > 1200 ? zx9?.others[2].image.desktop : 
+            zx9?.others[2].image.tablet
+            } alt="" />
 
           <LikeH1>{zx9?.others[2].name}</LikeH1>
           <LikeButton onClick={() => {
-            navigate("/headphones/xx59")
+            navigate("/speakers/zx9")
             context.HeaderGoFunc();
-            }}>
-            See Product
-          </LikeButton>
+            }}>See Product</LikeButton>
         </LikeDiv>
         </LikdeDivMain>
       </YuoMayAlsoLikeDiv>
@@ -149,6 +176,16 @@ export default function ZX9Page() {
     </div>
   );
 }
+
+const DivFIn = styled.div`
+  @media (width > 1200px) {
+    display: flex;
+    flex-direction: row;
+    padding: 0 165px;
+    margin-bottom: 160px;
+  
+  }
+`
 const LikdeDivMain = styled.div`
   @media (width > 767px) {
     display: flex;
@@ -161,11 +198,18 @@ const ImgDiv1 = styled.div`
   @media (width > 767px) {
     margin-right: 17.67px;
     width: 40%;
-    
+  }
+  @media (width > 767px) {
+    margin-right: 27px;
+    width: 40%;
   }
 `
+
 const DivFeatureRight = styled.div`
   width: 50%;
+  @media (width > 1200px) {
+    width: 100%;
+  }
 `
 
 const ImgDiv = styled.div`
@@ -180,9 +224,11 @@ display: flex;
 justify-content: center;
 overflow: hidden;
 width: 40%
-
-
-
+}
+@media (width > 1200px) {
+  height: 560px;
+  width: 50%;
+  margin-right: 125px;
 }
 `
 
@@ -232,6 +278,16 @@ const LikeDiv = styled.div`
    
   }
 `;
+const LikeDiv2 = styled(LikeDiv)`
+@media (width > 767px) {
+  margin: 0 11px;
+}
+@media (width > 1200px) {
+  margin: 0 30px;
+}
+`
+
+
 const LikeDivImg = styled.img`
   width: 100%;
   border-radius: 8px;
@@ -248,6 +304,10 @@ const YuoMayAlsoLikeDiv = styled.div`
     padding: 0 40px;
     
   }
+  @media (width > 1200px) {
+    padding: 0 165px;
+    
+  }
 `;
 
 const ImagesDiv = styled.div`
@@ -258,7 +318,9 @@ const ImagesDiv = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0 40px;
-    justify-content: space-between;
+  }
+  @media (width > 1200px) {
+    padding: 0 165px;
   }
 `;
 const Img3 = styled.img`
@@ -269,6 +331,9 @@ const Img3 = styled.img`
   @media (width > 767px){
     width: 56.26%;
   }
+  @media (width > 1200px) {
+    height: 592px;
+  }
 `;
 const Img1 = styled.img`
   height: 174px;
@@ -278,6 +343,10 @@ const Img1 = styled.img`
   width: 100%;
   @media (width > 767px) {
     margin-bottom: 17.67px;
+  }
+  @media (width > 1200px) {
+    height: 280px;
+    margin-bottom: 27px;
   }
 `;
 
@@ -321,6 +390,9 @@ line-height: 36px;
 letter-spacing: 1.14286px;
 width: 50%;
   }
+  @media (width > 1200px) {
+    width: 100%;
+  }
 `;
 const InTheBoxDiv = styled.div`
   margin-top: 88px;
@@ -334,6 +406,13 @@ const InTheBoxDiv = styled.div`
     display: flex;
     flex-direction: row;
     
+  }
+ 
+    @media (width > 1200px) {
+    width: 47%;
+    margin-top: 0;
+    flex-direction: column;
+    padding-left: 125px;
   }
 `;
 const FeatureP = styled.p`
@@ -368,7 +447,13 @@ const FeaturesDiv = styled.div`
   @media (width > 767px) {
     padding: 0 40px;
     
+    
   }
+  @media (width > 1200px) {
+    width: 53%;
+    padding: 0;
+  }
+ 
   
 `;
 const ButtonP = styled.p`
@@ -447,6 +532,11 @@ const BackButton = styled.button`
     margin-top: 33px;
     margin-left: 40px;
   }
+  @media (width > 1200px) {
+    margin-top: 79px;
+    margin-left: 165px;
+    margin-bottom: 56px
+  }
 `;
 
 const ProductButton = styled.button`
@@ -478,6 +568,9 @@ line-height: 16px;
 letter-spacing: 8.57143px;
 margin-bottom: 17px;
   }
+  @media (width > 1200px) {
+
+  }
 `;
 const ProductH1 = styled.h1`
   font-weight: 700;
@@ -495,6 +588,11 @@ line-height: 32px;
 width: 339px;
 
   }
+  @media (width > 1200px) {
+    font-size: 40px;
+line-height: 44px;
+letter-spacing: 1.42857px;
+  }
 `;
 
 const ProductP = styled.p`
@@ -510,6 +608,9 @@ const ProductP = styled.p`
     /* width: 100%; */
     margin-right: 39.5px;
    
+  }
+  @media (width > 1200px) {
+    width: 445px;
   }
 `;
 
@@ -531,11 +632,16 @@ const ProductDiv = styled.div`
   margin-bottom: 88px;
   width: 100%;
   overflow: hidden;
+  align-items: center;
   @media (width > 767px) {
     flex-direction: row;
    
     padding: 0 40px;
     justify-content: space-between;
+  }
+  @media (width > 1200px) {
+    padding: 0 165px;
+    margin-bottom: 160px;
   }
 `;
 const ProductImg = styled.img`

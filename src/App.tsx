@@ -1,5 +1,6 @@
 import { createContext, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import styled from "styled-components";
 import FooterComponent from "./components/FooterComponent";
 import GlobalStyles from "./components/GlobalStyles";
 import HeaderComponent from "./components/HeaderComponent";
@@ -86,6 +87,7 @@ function App() {
       <div className="App">
         <GlobalStyles />
         <HeaderComponent />
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/headphones">

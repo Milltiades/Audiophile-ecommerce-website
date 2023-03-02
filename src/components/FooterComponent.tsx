@@ -85,7 +85,8 @@ const LiButtons = styled.button`
   text-transform: uppercase;
   transition: all .3s ease;
   &:hover {
-    opacity: 0.5;
+   
+    color: #D87D4A;
   }
 
 `
@@ -117,6 +118,10 @@ const FooterDownP = styled.p`
   @media (width > 767px) {
     text-align: start;
   }
+  @media (width > 1200px) {
+    width: 540px;
+    text-align: start;
+  }
 `;
 const FooterDownlastP = styled.p`
   font-style: normal;
@@ -146,6 +151,9 @@ const Footer = styled.div`
     padding: 0 40px 46px ;
     align-items: flex-start;
   }
+  @media (width > 1200px) {
+    padding: 0 165px 48px;
+  }
 `;
 
 const FooterUp = styled.div`
@@ -156,6 +164,10 @@ const FooterUp = styled.div`
   align-items: center;
   @media (width > 767px) {
     align-items: flex-start;
+  }
+  @media (width > 1200px){
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
@@ -174,6 +186,10 @@ const FooterUpLi = styled.li`
   @media (width > 767px) {
     margin-right: 34px ;
   }
+  @media (width > 1200px){
+    margin-right: 0;
+    margin-left: 34px;
+  }
 `;
 
 const FooterDown = styled.div`
@@ -181,5 +197,8 @@ const FooterDown = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (width > 1200px) {
+    align-items: flex-start;
+  }
  
 `;

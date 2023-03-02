@@ -30,6 +30,7 @@ export default function StarterBackgroundDivComponent() {
 
 const BackgroundDiv = styled.div`
   position: relative;
+  background: #191919;
   width: 100%;
   align-items: center;
   display: flex;
@@ -39,6 +40,7 @@ const BackgroundDiv = styled.div`
   background-size: cover;
   padding-bottom: 104px;
   top: -59.78px;
+  overflow: hidden;
   @media (width > 767px) {
     background-image: url("/assets/home/tablet/image-header.jpg");
     
@@ -46,6 +48,14 @@ const BackgroundDiv = styled.div`
     padding-right: 186.61px;
     padding-left: 185.61px;
     padding-bottom:167px;
+    
+  }
+
+  @media (width > 1200px) {
+   align-items: flex-start;
+    background-size: contain;
+    background-position-x: 100% ;
+    padding-bottom:158px;
     
   }
   
@@ -56,6 +66,10 @@ const ContentDiv = styled.div`
   align-items: center;
   padding-left: 24px;
   padding-right: 24px;
+   @media (width > 1200px) {
+    padding: 0;
+    align-items: flex-start;
+  }
 `;
 const BackP = styled.p`
   margin-top: 198px;
@@ -68,6 +82,7 @@ const BackP = styled.p`
   color: ${ThemeData.colors.white};
   mix-blend-mode: normal;
   opacity: 0.5;
+ 
 `;
 
 const BackH1 = styled.h1`
@@ -80,6 +95,18 @@ const BackH1 = styled.h1`
   text-transform: uppercase;
   color: ${ThemeData.colors.white};
   overflow: hidden;
+  @media (width > 767px) {
+font-weight: 700;
+font-size: 56px;
+line-height: 58px;
+text-align: center;
+letter-spacing: 2px;
+width: 396px;
+  }
+  @media (width > 1200px) {
+    text-align: start;
+  }
+  
 `;
 
 const BackText = styled.p`
@@ -92,6 +119,10 @@ const BackText = styled.p`
   color: ${ThemeData.colors.white};
   mix-blend-mode: normal;
   opacity: 0.75;
+  @media (width > 1200px) {
+    width: 349px;
+    text-align: start;
+  }
 `;
 
 const Button = styled.button`

@@ -12,17 +12,21 @@ export default function MainDiv1Component() {
     <>
       <MainDiv>
         <Orange>
+          <>
           <OrangeCircle1></OrangeCircle1>
           <OrangeCircle2></OrangeCircle2>
           <OrangeCircle3></OrangeCircle3>
+          </>
           <OrangeContent>
-            <OrangeImg src="/assets/home/mobile/image-speaker-zx9.png" alt="" />
+            <OrangeImg src={window.innerWidth < 1200 ? "/assets/home/mobile/image-speaker-zx9.png" : "/assets/home/desktop/image-speaker-zx9.png"} alt="" />
+            <DivOranInside>
             <OrangeH1>ZX9 SPEAKER</OrangeH1>
             <OrangeP>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</OrangeP>
             <OrangeButton onClick={() => {
               navigate("speakers/zx9")
               context.HeaderGoFunc();
               }}>See Product</OrangeButton>
+              </DivOranInside>
           </OrangeContent>
         </Orange>
         <ZX7Speaker>
@@ -47,7 +51,21 @@ export default function MainDiv1Component() {
   );
 }
 
+const DivOranInside = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+overflow: hidden;
+@media (width > 1200px) {
+  display: flex;
+  flex-direction: column;
+  margin-right: 95px;
+
+}
+`
+
 const OrangeButton = styled.button`
+
   font-weight: 700;
 font-size: 13px;
 line-height: 18px;
@@ -58,12 +76,14 @@ color: ${ThemeData.colors.white};
 background: ${ThemeData.colors.darkBlack};
 margin-top: 24px;
 border: none;
+
 @media (width > 767px) {
   margin-top: 40px;
 }
 `
 
 const OrangeP = styled.p`
+margin: 0 auto;
   font-weight: 500;
 font-size: 15px;
 line-height: 25px;
@@ -78,6 +98,7 @@ margin-top: 24px;
 
 `
 const OrangeH1 = styled.h1`
+margin: 0 auto;
 overflow: hidden;
   font-weight: 700;
   font-size: 36px;
@@ -104,6 +125,11 @@ const OrangeImg = styled.img`
 
   width: 172.25px;
   height: 207px;
+  @media (width > 1200px) {
+    width: 410.23px;
+    height: 493px;
+    margin-left: 117px;
+  }
 `;
 
 const OrangeContent = styled.div`
@@ -118,7 +144,11 @@ const OrangeContent = styled.div`
     
     top: -1894px;
   }
-  
+  @media (width > 1200px) {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 const YX1Black = styled.div`
   width: 100%;
@@ -130,6 +160,17 @@ const YX1Black = styled.div`
   position: relative;
   @media (width > 767px) {
     height: 320px;
+     background-image: url("/assets/product-yx1-earphones/tablet/image-gallery-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  }
+  @media (width > 1200px) {
+    height: 320px;
+     background-image: url("/assets/product-yx1-earphones/desktop/image-gallery-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
   }
 `;
 const YX1White = styled.div`
@@ -145,7 +186,12 @@ const YX1White = styled.div`
   margin-left: 11px;
   padding: 101px 0px 41px 41px;
   height: 320px;
+  width: 50%;
  }
+ @media (width > 767px) {
+  padding: 101px 0px 41px 95px;
+  width: 50%;
+   }
 `;
 const YX1WhiteP = styled.p`
   font-weight: 700;
@@ -154,6 +200,7 @@ const YX1WhiteP = styled.p`
   letter-spacing: 2px;
   text-transform: uppercase;
   color: ${ThemeData.colors.darkBlack};
+  overflow: hidden;
 `;
 
 const YX1WhiteButton = styled.button`
@@ -185,7 +232,7 @@ const ZX7Speaker = styled.div`
   background: ${ThemeData.colors.silver};
   width: 100%;
   height: 320px;
-  background-image: url("/assets/shared/mobile/Bitmap.png");
+  background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 101px 0 101px 24px;
@@ -193,6 +240,14 @@ const ZX7Speaker = styled.div`
   @media (width > 767px) {
 padding: 101px 0 101px 62px;
  margin-top: 32px;
+ background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  @media (width > 1200px) {
+   background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 `;
 
@@ -223,6 +278,10 @@ const Orange = styled.div`
   @media (width > 767px){
     height: 720px;
   }
+  @media (width > 1200px) {
+    height: 560px;
+  }
+  
   
 `;
 const OrangeCircle1 = styled.div`
@@ -239,6 +298,9 @@ const OrangeCircle1 = styled.div`
     width: 472px;
   height: 472px;
   top: -52px;
+  }
+  @media (width > 1200px) {
+    left: -150px;
   }
 `;
 const OrangeCircle2 = styled.div`
@@ -280,4 +342,10 @@ const OrangeCircle3 = styled.div`
 const MainDiv = styled.div`
   padding: 0 24px;
   margin-bottom: 120px;
+  @media (width > 767px) {
+    padding: 0 39px;
+  }
+  @media (width > 1200px) {
+    padding: 0 165px;
+  }
 `;

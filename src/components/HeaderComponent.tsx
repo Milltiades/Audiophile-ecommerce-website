@@ -12,16 +12,62 @@ export default function HeaderComponent() {
 
   return (
     <>
-      <Header ref={context.refHome}>
-        <ButtonIcon onClick={() => context.setIsMenu(!context.isMenu)}>
-          <ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" />
-        </ButtonIcon>
-        <HImg src="/assets/shared/desktop/logo.svg" alt="" />
-        <ButtonIcon onClick={() => context.setIsCart(!context.isCart)}>
-          <ImgC src="/assets/shared/desktop/icon-cart.svg" alt="" />
-        </ButtonIcon>
-      </Header>
-      <UnderHeaderLine />
+      <div style={{ background: "#191919" }}>
+        <Header ref={context.refHome}>
+          <ButtonIcon1 onClick={() => context.setIsMenu(!context.isMenu)}>
+            <ImgB src="/assets/shared/tablet/icon-hamburger.svg" alt="" />
+          </ButtonIcon1>
+          <HImg src="/assets/shared/desktop/logo.svg" alt="" />
+          <HeaderUl>
+            <HeaderLi>
+              <LiButtons
+                onClick={() => {
+                  navigate("/");
+                  context.HeaderGoFunc();
+                }}
+              >
+                Home
+              </LiButtons>
+            </HeaderLi>
+            <HeaderLi>
+              <LiButtons
+                onClick={() => {
+                  navigate("/headphones");
+                  context.HeaderGoFunc();
+                }}
+              >
+                Headphones
+              </LiButtons>
+            </HeaderLi>
+            <HeaderLi>
+              <LiButtons
+                onClick={() => {
+                  navigate("/speakers");
+                  context.HeaderGoFunc();
+                }}
+              >
+                speakers
+              </LiButtons>
+            </HeaderLi>
+            <HeaderLi>
+              <LiButtons
+                onClick={() => {
+                  navigate("/earphones");
+                  context.HeaderGoFunc();
+                }}
+              >
+                earphones
+              </LiButtons>
+            </HeaderLi>
+          </HeaderUl>
+
+          <ButtonIcon onClick={() => context.setIsCart(!context.isCart)}>
+            <ImgC src="/assets/shared/desktop/icon-cart.svg" alt="" />
+          </ButtonIcon>
+        </Header>
+        <UnderHeaderLine />
+      </div>
+
       <CartDiv display={context.isCart ? "block" : "none"}>
         <CartMainDiv>
           <CartHeader>
@@ -273,16 +319,21 @@ export default function HeaderComponent() {
       </MenuDiv>
       <OrderDiv display={context.isOrder ? "block" : "none"}>
         <Order>
-          <CircleDiv >
+          <CircleDiv>
             <img src="/assets/checkout/icon-order-confirmation.svg" alt="" />
           </CircleDiv>
-          <H1>THANK YOU <br/> FOR YOUR ORDER</H1>
+          <H1>
+            THANK YOU <br /> FOR YOUR ORDER
+          </H1>
           <PP>You will receive an email confirmation shortly.</PP>
           <Content>
             <Content1>
               {context.itemAddXX99M2 ? (
-                <CartItem 
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                <CartItem
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     <ItemImg src={data[3].image.mobile} alt="" />
@@ -297,7 +348,10 @@ export default function HeaderComponent() {
                 </CartItem>
               ) : context.itemAddXX99M1 ? (
                 <CartItem
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     <ItemImg src={data[2].image.mobile} alt="" />
@@ -312,7 +366,10 @@ export default function HeaderComponent() {
                 </CartItem>
               ) : context.itemAddXX59 ? (
                 <CartItem
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     {" "}
@@ -328,7 +385,10 @@ export default function HeaderComponent() {
                 </CartItem>
               ) : context.itemAddYX1 ? (
                 <CartItem
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     {" "}
@@ -344,7 +404,10 @@ export default function HeaderComponent() {
                 </CartItem>
               ) : context.itemAddZX7 ? (
                 <CartItem
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     {" "}
@@ -360,7 +423,10 @@ export default function HeaderComponent() {
                 </CartItem>
               ) : context.itemAddZX9 ? (
                 <CartItem
-                  style={{ display: context.isRemoved ? "none" : "flex" , marginBottom: "0"}}
+                  style={{
+                    display: context.isRemoved ? "none" : "flex",
+                    marginBottom: "0",
+                  }}
                 >
                   <PriceText>
                     {" "}
@@ -374,62 +440,95 @@ export default function HeaderComponent() {
                     <ButtonPX>{"x" + context.QuantityZX9}</ButtonPX>
                   </ItemQuantity>
                 </CartItem>
-              ) : (
-                null
-              )}
+              ) : null}
             </Content1>
-            <LineDiv/>
-            <P style={{textAlign: "center", marginBottom: "25px"}}>and {context.CurtNum - 1} other item(s)</P>
+            <LineDiv />
+            <P style={{ textAlign: "center", marginBottom: "25px" }}>
+              and {context.CurtNum - 1} other item(s)
+            </P>
             <UnderDiv>
-            
-            <TotalP style={{color: "#FFFFFF"}}>GRAND TOTAL</TotalP>
-            <TotalH1 style={{color: "#FFFFFF", textAlign:"start", marginTop : "8px"}}>
-            ${" "}
-            {data[3].price * context.QuantityXX99M2 +
-                data[2].price * context.QuantityXX99M1 +
-                data[5].price * context.QuantityZX9 +
-                data[4].price * context.QuantityZX7 +
-                data[0].price * context.QuantityYX1 +
-                data[1].price * context.QuantityXX59 + 50}
-            </TotalH1>
-            
-         
+              <TotalP style={{ color: "#FFFFFF" }}>GRAND TOTAL</TotalP>
+              <TotalH1
+                style={{
+                  color: "#FFFFFF",
+                  textAlign: "start",
+                  marginTop: "8px",
+                }}
+              >
+                ${" "}
+                {data[3].price * context.QuantityXX99M2 +
+                  data[2].price * context.QuantityXX99M1 +
+                  data[5].price * context.QuantityZX9 +
+                  data[4].price * context.QuantityZX7 +
+                  data[0].price * context.QuantityYX1 +
+                  data[1].price * context.QuantityXX59 +
+                  50}
+              </TotalH1>
             </UnderDiv>
-            
           </Content>
-          <Button style={{marginTop : "32px"}} onClick={() => {
-            context.setIsOrder(false)
-            navigate("/")}}>BACK TO HOME</Button>
+          <Button
+            style={{ marginTop: "32px" }}
+            onClick={() => {
+              context.setIsOrder(false);
+              navigate("/");
+            }}
+          >
+            BACK TO HOME
+          </Button>
         </Order>
       </OrderDiv>
     </>
   );
 }
-const LineDiv = styled.div`
-width: 81%;
-height: 1px;
-background: #000000;
-mix-blend-mode: normal;
-opacity: 0.08;
-margin: 0 auto 12px;
 
-`
+const LiButtons = styled.button`
+  border: none;
+  background: transparent;
+  color: ${ThemeData.colors.white};
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  &:hover {
+    color: #d87d4a;
+  }
+`;
+const HeaderUl = styled.ul`
+  display: none;
+  @media (width > 1200px) {
+    width: 427px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+const HeaderLi = styled.li`
+  overflow: hidden;
+`;
+
+const LineDiv = styled.div`
+  width: 81%;
+  height: 1px;
+  background: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.08;
+  margin: 0 auto 12px;
+`;
 const UnderDiv = styled.div`
   width: 100%;
   height: 92px;
   background: #000000;
   padding: 15px 0 19px 24px;
-  
-
-
-`
+`;
 
 const Content1 = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 24px;
   padding: 0 24px;
- 
 `;
 const Content2 = styled.div`
   display: flex;
@@ -440,8 +539,6 @@ const Content = styled.div`
   background: #f1f1f1;
   border-radius: 8px;
   overflow: hidden;
-
-  
 `;
 const PP = styled.p`
   font-style: normal;
@@ -466,14 +563,12 @@ const H1 = styled.h1`
   overflow: hidden;
   margin-top: 23px;
   @media (width > 767px) {
-    
     font-weight: 700;
-font-size: 32px;
-line-height: 36px;
-letter-spacing: 1.14286px;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14286px;
   }
-`
-
+`;
 
 const CircleDiv = styled.div`
   width: 64px;
@@ -484,7 +579,7 @@ const CircleDiv = styled.div`
 `;
 const Order = styled.div`
   background: ${ThemeData.colors.white};
-  
+
   width: 100%;
   border-radius: 8px;
   display: flex;
@@ -507,6 +602,9 @@ const OrderDiv = styled.div<any>`
 
   @media (width > 767px) {
     padding: 132px 114px;
+  }
+  @media (width > 1200px){
+    padding: 125px 31.25%;
   }
 `;
 
@@ -574,15 +672,14 @@ const ButtonP = styled.p`
 `;
 
 const ButtonPX = styled.p`
-  
   font-weight: 700;
-font-size: 15px;
-line-height: 25px;
-text-align: right;
-color: #000000;
-mix-blend-mode: normal;
-opacity: 0.5;
-`
+  font-size: 15px;
+  line-height: 25px;
+  text-align: right;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+`;
 const ButtonMinus = styled.button`
   width: 16px;
   height: 18px;
@@ -630,15 +727,14 @@ const ItemQuantity = styled.div`
   align-items: center;
 `;
 const XP = styled.p`
-
-font-weight: 700;
-font-size: 15px;
-line-height: 25px;
-text-align: right;
-color: #000000;
-mix-blend-mode: normal;
-opacity: 0.5;
-`
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+  text-align: right;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+`;
 
 const CartItemText = styled.div`
   display: flex;
@@ -698,6 +794,10 @@ const CartDiv = styled.div<any>`
   @media (width > 767px) {
     padding: 0 40px 0 50%;
   }
+
+  @media (width > 1200px) {
+    padding: 0 165px 0 60%
+  }
 `;
 const CartMainDiv = styled.div`
   background: ${ThemeData.colors.white};
@@ -718,6 +818,12 @@ const ButtonIcon = styled.button`
   border: none;
   background: transparent;
 `;
+const ButtonIcon1 = styled(ButtonIcon)`
+  @media (width > 1200px) {
+    display: none;
+  }
+`;
+
 const Header = styled.div`
   display: flex;
   padding: 32px 24px;
@@ -727,19 +833,27 @@ const Header = styled.div`
   @media (width > 767px) {
     padding: 32px 39.61px;
   }
+  @media (width > 1200px) {
+    padding: 32px 165px;
+  }
 `;
 const HImg = styled.img`
-
-@media (width > 767px) {
+  @media (width > 767px) {
     margin-right: calc(100% - 261px);
   }
-`
-
+  @media (width > 1200px) {
+    all: unset;
+  }
+`;
 
 const UnderHeaderLine = styled.div`
   width: 100%;
   height: 1px;
   background: #2d2d2d;
+  @media (width > 1200px) {
+    width: calc(100% - 330px);
+    margin: 0 auto;
+  }
 `;
 
 const ImgB = styled.img`
