@@ -12,11 +12,14 @@ export default function MainDiv1Component() {
     <>
       <MainDiv>
         <Orange>
-          <OrangeDiv>
-          <OrangeCircle1></OrangeCircle1>
+          
+          {/* <OrangeCircle1></OrangeCircle1>
           <OrangeCircle2></OrangeCircle2>
-          <OrangeCircle3></OrangeCircle3>
-          </OrangeDiv>
+          <OrangeCircle3></OrangeCircle3> */}
+
+
+          <ImgCircles src="/assets/home/desktop/pattern-circles.svg" alt="" />
+         
           <OrangeContent>
             <OrangeImg src={window.innerWidth < 1200 ? "/assets/home/mobile/image-speaker-zx9.png" : "/assets/home/desktop/image-speaker-zx9.png"} alt="" />
             <DivOranInside>
@@ -52,6 +55,27 @@ export default function MainDiv1Component() {
     </>
   );
 }
+
+const ImgCircles = styled.img`
+  z-index: 0;
+position: absolute;
+  width: 558px;
+  transform: translate(-19%, -19%);
+  @media (width > 767px) {
+   
+    width: 944px;
+    transform: translate(-12%, -34%);
+  }
+  @media (width > 1200px) {
+   
+  
+   transform: translate(-16%, -6%);
+ }
+ 
+  
+  
+  
+`
 
 const DivOranInside = styled.div`
 display: flex;
@@ -143,9 +167,9 @@ const OrangeImg = styled.img`
 const OrangeContent = styled.div`
   display: flex;
   flex-direction: column;
- position: relative;
+ position: absolute;
  z-index: 50;
- margin-top: -103.5px;
+top: 55px;
   width: 100%;
   align-items: center;
   padding: 0 24px 55px 24px;
@@ -290,11 +314,13 @@ const ZX7SpeakerButton = styled.button`
 `;
 
 const Orange = styled.div`
+
   background: ${ThemeData.colors.orange};
   border-radius: 8px;
   overflow: hidden;
   height: 600px;
   align-items: center;
+  position: relative;
  
   @media (width > 767px){
     height: 720px;
@@ -312,7 +338,10 @@ const OrangeDiv = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-top: 158.5px;
+  /* background: red; */
+  
+  
+  
 z-index: -5;
  
 `
